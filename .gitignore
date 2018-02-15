@@ -1,0 +1,9 @@
+.clang-format
+.vscode
+*.code-workspace
+checker_dir/checker.dSYM
+checker_dir/obj/*
+checker_dir/checker
+push_swap_dir/push_swap.dSYM
+push_swap_dir/obj/*
+push_swap_dir/push_swap
