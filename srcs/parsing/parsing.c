@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 13:31:57 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:44:58 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,19 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 {
 	char	*line;
 	int8_t	room_type;
+	int8_t	type;
 	int8_t	status;
-	t_room	*room;
 
 	room_type = ROOM;
 	while ((status = get_next_line(0, &line)) > FILE_READ)
 	{
+		if (save_line(line, input) == ERROR)
+			return (error_parsing(*input, map));
 		if (line[0] == '#')
 		{
 			if (line [1] == '#')
-				room_type = parse_type(&(line[2]), map);
+				if ((type = parse_type(&(line[2]))) == START || type == END)
+					room_type = type;
 		}
 		else
 		{
@@ -61,39 +64,33 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 				return (error_parsing(*input, map));
 			room_type = ROOM;
 		}
-		//debug
-		ft_print("Before saving...\n");
-		print_input(*input);
-		ft_print("Line to save: %s\n", line);
-		save_line(line, input);
-		ft_print("After saving...\n");
-		print_input(*input);
 	}
 	free(line);
 	return (SUCCESS);
 }
 
-static int8_t	get_tubes(t_map *map, t_input *input)
-{
-	return (SUCCESS);
-}
+// static int8_t	get_tubes(t_map *map, t_input *input)
+// {
+	// return (SUCCESS);
+// }
 
 int8_t			parse_map(t_map *map)
 {
 	t_input	input;
-	int8_t	status;
-	int8_t	room_type;
 
-	room_type = ROOM;
-
-	init_print_map(&input);
+	init_input(&input);
 	if ((map->ants = get_ants(&input)) <= 0)
 		return (ERROR);
-	get_rooms(map, &input);
+	if (get_rooms(map, &input) == ERROR)
+		return (ERROR);
 	// get_tubes(map, &input);
+	//debug
+	ft_print("Printing input:\n");
+	//debug
+	print_and_free_input(input);
 	//debug
 	ft_print("Printing map:\n");
 	//debug
-	print_and_free_input(input);
+	print_map(*map);
 	return (SUCCESS);
 }

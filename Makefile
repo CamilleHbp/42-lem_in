@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/15 14:36:29 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/02/16 15:10:11 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS	+=	check_map.c \
 			parse_room.c \
 			parsing.c \
 			print_map.c
-SRCS	+=	map_utilities.c
+SRCS	+=	map_utilities.c \
+			string_utilities.c
 
 # object files
 OBJ_DIR		:=	./obj

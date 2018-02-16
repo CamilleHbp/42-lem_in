@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 13:53:42 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:38:55 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			main(void)
 	if ((status = parse_map(&map)) == ERROR)
 		ft_print("error\n");
 	status = SUCCESS;
-	ft_print("map address: %p\n", &map);
+	// ft_print("map address: %p\n", &map);
 	free_map(&map);
 	return (status);
 }

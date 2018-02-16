@@ -55,3 +55,27 @@ void	print_input(t_input input)
 		++i;
 	}
 }
+
+//debug
+void	print_map(t_map map)
+{
+	int32_t	i;
+
+	i = 0;
+	while (i < map.size_rooms)
+	{
+		ft_print("------------\nROOM #%d\n", (i + 1));
+		ft_print("Name: %s\n", map.rooms[i]->name);
+		if (map.rooms[i]->type == ROOM)
+			ft_print("Type: room\n");
+		else if (map.rooms[i]->type == START)
+			ft_print("Type: start\n");
+		else if (map.rooms[i]->type == END)
+			ft_print("Type: end\n");
+		else
+			ft_print("Type: *unkown*\n");
+		ft_print("X: %d\n", map.rooms[i]->x);
+		ft_print("Y: %d\n", map.rooms[i]->y);
+		++i;
+	}
+}

@@ -1,6 +1,7 @@
 .clang-format
 .vscode
 *.code-workspace
+lem_in
 lem_in.dSYM
 obj/*
 lem_in

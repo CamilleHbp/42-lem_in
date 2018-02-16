@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_manager.h                                    :+:      :+:    :+:   */
+/*   string_utilities.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/15 11:02:25 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 15:46:51 by cbaillat         ###   ########.fr       */
+/*   Created: 2018/02/16 14:07:20 by cbaillat          #+#    #+#             */
+/*   Updated: 2018/02/16 15:11:46 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_MANAGER_H
-# define ERROR_MANAGER_H
+#include "utilities.h"
 
-# include "algorithm.h"
-# include "lem_in.h"
-# include "parsing.h"
+char	*rev_skip_whitespace(char *s)
+{
+	while (s && (s - 1)
+		&& (*s == ' ' || *s == '\t' || *s == '\n'
+		|| *s == '\v' || *s == '\f' || *s == '\r'))
+		--s;
+	return (s);
+}
 
-int8_t	error_parsing(t_input to_print, t_map *map);
-int8_t	error_parsing_room(char *line_cpy, t_room *room);
-
-#endif
+char	*rev_skip_number(char *s)
+{
+	if (s && ft_isdigit(*s))
+	{
+		while ((s - 1) && ft_isdigit(*(s + 1)))
+			--s;
+		if ((s - 1) && (*(s + 1) = '-'))
+			--s;
+	}
+	return (s);
+}

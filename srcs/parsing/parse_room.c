@@ -6,42 +6,55 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 13:37:05 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:46:33 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "error_manager.h"
 #include "parsing.h"
 #include "utilities.h"
 
-static t_room	*check_room_double(t_map *map)
-{
-	return (NULL);
-}
+// static t_room	*check_room_double(t_map *map, t_room *room)
+// {
+	//find out if room already exist
+	// map->rooms[i]->type = room->type;
+	// map->rooms[i]->x = room->x;
+	// map->rooms[i]->y = room->y;
+	// free(room);
+	// return (NULL);
+// }
 
-static void		copy_and_free_room(t_room *src, t_room *dst)
+char			*get_coordinate(char *line, int32_t *coordinate)
 {
-	dst->type = src->type;
-	dst->x = src->x;
-	dst->y = src->y;
-	free(src);
+	line = rev_skip_whitespace(line);
+	if (!line || !ft_isdigit(*line))
+		return (NULL);
+	line = rev_skip_number(line);
+	*coordinate = ft_atoi64(line);
+	if (!line || !ft_isspace(*(--line)))
+		return (NULL);
+	line = rev_skip_whitespace(line);
+	*(line + 1) = '\0';
+	return (line);
 }
 
 int8_t			parse_room(char *line, t_map *map, int8_t room_type)
 {
-	size_t	line_len;
-	size_t	i;
+	char	*start_cpy;
+	char	*end_cpy;
 	t_room	*room;
-	t_room	*tmp;
 
-	// line_len = ft_strlen(line);
-	// i = line_len;
-	if (!(tmp = init_room()))
-			return (ERROR);
-	// while (--i)
-		// if (!(is_digit()))
-	tmp->x = 10;
-	tmp->y = 20;
-	tmp->name = "room1";
+	if (!(room = init_room()))
+		return (ERROR);
+	if (!(start_cpy = ft_strdup((line))))
+		return (error_parsing_room(start_cpy, room));
+	end_cpy = start_cpy + ft_strlen(start_cpy) - 1;
+	if (!(end_cpy = get_coordinate(end_cpy, &(room->y)))
+		|| !(end_cpy = get_coordinate(end_cpy, &(room->x)))
+		|| (start_cpy == end_cpy))
+		return (error_parsing_room(start_cpy, room));
+	room->name = start_cpy;
+	room->type = room_type;
 	// if ((room = check_room_double(map)))
 	// {
 		// copy_and_free_room(tmp, room);
@@ -50,15 +63,12 @@ int8_t			parse_room(char *line, t_map *map, int8_t room_type)
 	// else
 		// room = tmp;
 		//debug
-	if (add_room(map, tmp) == ERROR)
-	{
-		free(tmp);
-		return (ERROR);
-	}
+	if (add_room(map, room) == ERROR)
+		return (error_parsing_room(NULL, room));
 	return (SUCCESS);
 }
 
-int8_t			parse_type(char *cmd_line, t_map *map)
+int8_t			parse_type(char *cmd_line)
 {
 	if (!(ft_strcmp(cmd_line, "start")))
 		return (START);
