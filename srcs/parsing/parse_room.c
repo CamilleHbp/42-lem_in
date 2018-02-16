@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 16:28:45 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 16:41:24 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,26 @@ int8_t			parse_room(char *line, t_map *map, int8_t room_type)
 	char	*start_cpy;
 	char	*end_cpy;
 	t_room	*room;
+	t_room	*tmp;
 
-	if (!line || *line == '\0' || !(room = init_room()))
+	if (!line || *line == '\0' || !(tmp = init_room()))
 		return (ERROR);
 	if (!(start_cpy = ft_strdup((line))))
-		return (error_parsing_room(start_cpy, room));
+		return (error_parsing_room(start_cpy, tmp));
 	end_cpy = start_cpy + ft_strlen(start_cpy) - 1;
-	if (!end_cpy || !(end_cpy = get_coordinate(end_cpy, &(room->y)))
-		|| !(end_cpy = get_coordinate(end_cpy, &(room->x)))
+	if (!end_cpy || !(end_cpy = get_coordinate(end_cpy, &(tmp->y)))
+		|| !(end_cpy = get_coordinate(end_cpy, &(tmp->x)))
 		|| (start_cpy == end_cpy))
-		return (error_parsing_room(start_cpy, room));
-	room->name = start_cpy;
-	room->type = room_type;
+		return (error_parsing_room(start_cpy, tmp));
+	tmp->name = start_cpy;
+	tmp->type = room_type;
 	// if ((room = check_room_double(map)))
 	// {
 		// copy_and_free_room(tmp, room);
 		// free(tmp);
 	// }
 	// else
-		// room = tmp;
+		room = tmp;
 		//debug
 	if (add_room(map, room) == ERROR)
 		return (error_parsing_room(NULL, room));

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 15:44:58 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 16:49:15 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ static int64_t	get_ants(t_input *input)
 
 	while ((status = get_next_line(0, &line)) > FILE_READ)
 	{
-		if (save_line(line, input) == ERROR)
+		if (*line == '\0' || save_line(line, input) == ERROR)
+		{
+			free(line);
 			return (error_parsing(*input, NULL));
+		}
 		if (line[0] == '#')
 			continue ;
 		i = 0;
@@ -37,6 +40,7 @@ static int64_t	get_ants(t_input *input)
 		}
 		return (ft_atoi64(line));
 	}
+	free(line);
 	return (error_parsing(*input, NULL));
 }
 
