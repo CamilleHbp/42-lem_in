@@ -74,8 +74,8 @@ void	print_map(t_map map)
 			ft_print("Type: end\n");
 		else
 			ft_print("Type: *unkown*\n");
-		ft_print("X: %d\n", map.rooms[i]->x);
-		ft_print("Y: %d\n", map.rooms[i]->y);
+		ft_print("X: %d\n", (int64_t)map.rooms[i]->x);
+		ft_print("Y: %d\n", (int64_t)map.rooms[i]->y);
 		++i;
 	}
 }

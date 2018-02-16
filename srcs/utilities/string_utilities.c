@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:07:20 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 15:11:46 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 16:17:41 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ char	*rev_skip_number(char *s)
 {
 	if (s && ft_isdigit(*s))
 	{
-		while ((s - 1) && ft_isdigit(*(s + 1)))
+		while ((s - 1) && ft_isdigit(*(s - 1)))
 			--s;
-		if ((s - 1) && (*(s + 1) = '-'))
+		if ((s - 1) && (*(s - 1) == '-'))
 			--s;
 	}
 	return (s);
