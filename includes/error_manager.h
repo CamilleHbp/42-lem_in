@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:02:25 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 15:46:51 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/18 21:01:31 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 
 int8_t	error_parsing(t_input to_print, t_map *map);
 int8_t	error_parsing_room(char *line_cpy, t_room *room);
+int8_t	error_parsing_tube(char *name);
 
 #endif

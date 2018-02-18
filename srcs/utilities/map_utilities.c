@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/18 17:48:28 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/18 20:18:21 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	free_room(t_room *room)
 	{
 		if (room->name)
 			free(room->name);
+		if (room->links)
+			free(room->links);
 		free(room);
 	}
 }

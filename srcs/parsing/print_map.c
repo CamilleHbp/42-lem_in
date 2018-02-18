@@ -49,6 +49,8 @@ void	print_input(t_input input)
 	int32_t	i;
 
 	i = 0;
+	// We will not print the ;ast line as it will always be rubbish
+	// while (i < input.nb_lines - 1)
 	while (i < input.nb_lines)
 	{
 		ft_print("%s\n", input.lines[i]);
@@ -76,6 +78,38 @@ void	print_map(t_map map)
 			ft_print("Type: *unkown*\n");
 		ft_print("X: %d\n", (int64_t)map.rooms[i]->x);
 		ft_print("Y: %d\n", (int64_t)map.rooms[i]->y);
+		++i;
+	}
+}
+
+//debug
+void	print_room(t_room room)
+{
+	ft_print("------------\nROOM\n");
+	ft_print("Name: %s\n", room.name);
+	if (room.type == ROOM)
+		ft_print("Type: room\n");
+	else if (room.type == START)
+		ft_print("Type: start\n");
+	else if (room.type == END)
+		ft_print("Type: end\n");
+	else
+		ft_print("Type: *unkown*\n");
+	ft_print("X: %d\n", (int64_t)room.x);
+	ft_print("Y: %d\n", (int64_t)room.y);
+}
+
+//debug
+void	print_links(t_room room)
+{
+	uint64_t	i;
+
+	ft_print("------------\nROOM LINKS\n");
+	ft_print("Name: %s\n", room.name);
+	i = 0;
+	while (i < room.size_links)
+	{
+		ft_print("Link #%d: %s\n", i, room.links[i]->name);
 		++i;
 	}
 }

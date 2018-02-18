@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/16 15:10:11 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/02/18 19:34:18 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	lem_in.c \
 #SRCS	+=	algorithms.c
 SRCS	+=	check_map.c \
 			parse_room.c \
+			parse_tube.c \
 			parsing.c \
 			print_map.c
 SRCS	+=	map_utilities.c \

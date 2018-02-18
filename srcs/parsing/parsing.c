@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/18 17:54:32 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/18 20:05:26 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 {
 	char	*line;
 	int8_t	room_type;
-	int8_t	type;
 	int8_t	status;
+	int8_t	type;
 
 	room_type = ROOM;
 	while ((status = get_next_line(0, &line)) > FILE_READ)
@@ -79,8 +79,32 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 
 static int8_t	get_tubes(t_map *map, t_input *input)
 {
+	char	*line;
+	int8_t	status;
+
 	ft_print("Printing the last line:\n");
 	ft_print("%s\n", input->lines[input->nb_lines - 1]);
+
+	if (parse_tube(input->lines[input->nb_lines - 1], map) == ERROR)
+	{
+		free(input->lines[--(input->nb_lines)]);
+		return (ERROR);
+	}
+	//debug
+	while ((status = get_next_line(0, &line)) > FILE_READ)
+	{
+		if (save_line(line, input) == ERROR)
+			return (error_parsing(*input, map));
+		if (line[0] == '#')
+			continue ;
+		else
+		{
+			if (parse_tube(line, map) == ERROR)
+				return (SUCCESS);
+		}
+	}
+	free(line);
+	return (SUCCESS);
 	return (SUCCESS);
 }
 
@@ -95,8 +119,6 @@ int8_t			parse_map(t_map *map)
 		return (ERROR);
 	// when we return from get_rooms, we will have the first tube line stored
 	// in input. We will need to get it from here.
-	//debug
-	ft_print("Ants = %d\n", map->ants);
 	get_tubes(map, &input);
 	//debug
 	ft_print("Printing input:\n");
