@@ -59,7 +59,7 @@ void	print_input(t_input input)
 //debug
 void	print_map(t_map map)
 {
-	int32_t	i;
+	uint64_t	i;
 
 	i = 0;
 	while (i < map.size_rooms)

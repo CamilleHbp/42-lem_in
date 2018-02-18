@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 15:43:00 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/18 17:48:28 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,24 @@ void	free_map(t_map *map)
 	// ft_print("free_map rooms address: %p\n", map->rooms);
 	if (map->rooms)
 	{
-		// while (--(map->size_rooms) >= 0)
 		while (map->size_rooms > 0)
 		{
 			map->size_rooms -= 1;
-			free(map->rooms[map->size_rooms]->name);
-			free(map->rooms[map->size_rooms]);
+			free_room(map->rooms[map->size_rooms]);
+			map->rooms[map->size_rooms] = NULL;
 		}
 		free(map->rooms);
+		map->rooms = NULL;
+	}
+}
+
+void	free_room(t_room *room)
+{
+	if (room)
+	{
+		if (room->name)
+			free(room->name);
+		free(room);
 	}
 }
 

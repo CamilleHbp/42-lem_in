@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 17:00:37 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/18 17:54:32 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 static int64_t	get_ants(t_input *input)
 {
-	int32_t	i;
-	int32_t	status;
+	int64_t	i;
+	int8_t	status;
 	char	*line;
 
 	while ((status = get_next_line(0, &line)) > FILE_READ)
@@ -38,7 +38,9 @@ static int64_t	get_ants(t_input *input)
 				return (error_parsing(*input, NULL));
 			}
 		}
-		return (ft_atoi64(line));
+		if ((i = ft_atoi64(line)) <= 0)
+			return (ERROR);
+		return (ft_abs64(i));
 	}
 	free(line);
 	return (error_parsing(*input, NULL));
@@ -64,6 +66,8 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 		}
 		else
 		{
+			if (check_end_rooms(line) == SUCCESS)
+				return (SUCCESS);
 			if (parse_room(line, map, room_type) == ERROR)
 				return (error_parsing(*input, map));
 			room_type = ROOM;
@@ -73,10 +77,12 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 	return (SUCCESS);
 }
 
-// static int8_t	get_tubes(t_map *map, t_input *input)
-// {
-	// return (SUCCESS);
-// }
+static int8_t	get_tubes(t_map *map, t_input *input)
+{
+	ft_print("Printing the last line:\n");
+	ft_print("%s\n", input->lines[input->nb_lines - 1]);
+	return (SUCCESS);
+}
 
 int8_t			parse_map(t_map *map)
 {
@@ -89,7 +95,9 @@ int8_t			parse_map(t_map *map)
 		return (ERROR);
 	// when we return from get_rooms, we will have the first tube line stored
 	// in input. We will need to get it from here.
-	// get_tubes(map, &input);
+	//debug
+	ft_print("Ants = %d\n", map->ants);
+	get_tubes(map, &input);
 	//debug
 	ft_print("Printing input:\n");
 	//debug
