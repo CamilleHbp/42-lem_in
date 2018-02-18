@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 16:49:15 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/16 17:00:37 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int8_t			parse_map(t_map *map)
 		return (ERROR);
 	if (get_rooms(map, &input) == ERROR)
 		return (ERROR);
+	// when we return from get_rooms, we will have the first tube line stored
+	// in input. We will need to get it from here.
 	// get_tubes(map, &input);
 	//debug
 	ft_print("Printing input:\n");
