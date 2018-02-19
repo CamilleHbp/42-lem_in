@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 13:48:42 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:33:07 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,19 @@ int			main(void)
 {
 	int8_t	status;
 	t_map	map;
+	t_input	input;
 
 	init_map(&map);
-	if ((status = parse_map(&map)) == ERROR)
+	if ((status = parse_map(&map, &input)) == ERROR)
 		ft_print("error\n");
+	//debug
+	ft_print("Printing input:\n");
+	//debug
+	print_and_free_input(input);
+	//debug
+	ft_print("Printing map:\n");
+	//debug
+	print_map(map);
 	status = SUCCESS;
 	free_map(&map);
 	return (status);

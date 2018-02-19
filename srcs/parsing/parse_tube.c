@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 13:58:14 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:40:13 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ static t_room	*return_room(char *name, t_map map)
 
 static int8_t	link_rooms(t_room *room, t_room *to_link)
 {
+	uint64_t	i;
+
+	i = 0;
+	while (i < room->size_links)
+	{
+		if (!ft_strcmp(room->links[i]->name, to_link->name))
+			return (SUCCESS);
+		++i;
+	}
 	if (!(room->links = ft_realloc(room->links,
 								sizeof(t_room*) * room->size_links,
 								sizeof(t_room*) * (room->size_links + 1))))

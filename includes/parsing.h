@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 09:12:42 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/18 20:25:11 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:31:31 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_input
 }				t_input;
 
 int8_t			check_end_rooms(char *line);
-int8_t			parse_map(t_map *map);
+int8_t			parse_map(t_map *map, t_input *input);
 int8_t			parse_room(char *line, t_map *map, int8_t room_type);
 int8_t			parse_tube(char *line, t_map *map);
 int8_t			parse_type(char *cmd_line);

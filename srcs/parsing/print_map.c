@@ -66,18 +66,7 @@ void	print_map(t_map map)
 	i = 0;
 	while (i < map.size_rooms)
 	{
-		ft_print("------------\nROOM #%d\n", (i + 1));
-		ft_print("Name: %s\n", map.rooms[i]->name);
-		if (map.rooms[i]->type == ROOM)
-			ft_print("Type: room\n");
-		else if (map.rooms[i]->type == START)
-			ft_print("Type: start\n");
-		else if (map.rooms[i]->type == END)
-			ft_print("Type: end\n");
-		else
-			ft_print("Type: *unkown*\n");
-		ft_print("X: %d\n", (int64_t)map.rooms[i]->x);
-		ft_print("Y: %d\n", (int64_t)map.rooms[i]->y);
+		print_room(*(map.rooms[i]));
 		++i;
 	}
 }
