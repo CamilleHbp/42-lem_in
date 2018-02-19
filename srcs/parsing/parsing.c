@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/18 20:05:26 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:08:23 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,15 @@ static int64_t	get_ants(t_input *input)
 	{
 		if (*line == '\0' || save_line(line, input) == ERROR)
 		{
-			free(line);
+			// free(line);
 			return (error_parsing(*input, NULL));
 		}
 		if (line[0] == '#')
 			continue ;
 		i = 0;
 		while (line[i])
-		{
 			if (!(ft_isdigit(line[i++])))
-			{
-				free(line);
 				return (error_parsing(*input, NULL));
-			}
-		}
 		if ((i = ft_atoi64(line)) <= 0)
 			return (ERROR);
 		return (ft_abs64(i));
@@ -100,7 +95,10 @@ static int8_t	get_tubes(t_map *map, t_input *input)
 		else
 		{
 			if (parse_tube(line, map) == ERROR)
+			{
+				free(input->lines[--(input->nb_lines)]);
 				return (SUCCESS);
+			}
 		}
 	}
 	free(line);

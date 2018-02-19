@@ -85,6 +85,8 @@ void	print_map(t_map map)
 //debug
 void	print_room(t_room room)
 {
+	uint64_t	i;
+
 	ft_print("------------\nROOM\n");
 	ft_print("Name: %s\n", room.name);
 	if (room.type == ROOM)
@@ -97,6 +99,12 @@ void	print_room(t_room room)
 		ft_print("Type: *unkown*\n");
 	ft_print("X: %d\n", (int64_t)room.x);
 	ft_print("Y: %d\n", (int64_t)room.y);
+	i = 0;
+	while (i < room.size_links)
+	{
+		ft_print("Link #%d: %s\n", i, room.links[i]->name);
+		++i;
+	}
 }
 
 //debug

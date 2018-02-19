@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/18 21:04:32 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 13:58:14 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,5 @@ int8_t		parse_tube(char *line, t_map *map)
 	// the links of the other.
 	if (link_rooms(room1, room2) == ERROR || link_rooms(room2, room1) == ERROR)
 		return (ERROR);
-	print_links(*room1);
-	print_links(*room2);
 	return (SUCCESS);
 }

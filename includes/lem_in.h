@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/18 20:57:13 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:07:07 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct	s_map
 	t_room		**rooms;
 	uint64_t	size_rooms;
 	uint64_t	ways;
-	uint64_t		ants;
+	int64_t		ants;
 }				t_map;
 
 #endif
