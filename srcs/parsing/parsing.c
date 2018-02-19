@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 14:08:23 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:11:14 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int64_t	get_ants(t_input *input)
 	{
 		if (*line == '\0' || save_line(line, input) == ERROR)
 		{
-			// free(line);
+			free(line);
 			return (error_parsing(*input, NULL));
 		}
 		if (line[0] == '#')
