@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 14:07:13 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:18:04 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int8_t			parse_room(char *line, t_map *map, int8_t room_type)
 	end_cpy = start_cpy + ft_strlen(start_cpy) - 1;
 	if (!end_cpy || !(end_cpy = get_coordinate(end_cpy, &(room->y)))
 		|| !(end_cpy = get_coordinate(end_cpy, &(room->x)))
-		|| (start_cpy > end_cpy) || ft_strlen(end_cpy) == 0)
+		|| ft_strlen(end_cpy) == 0)
 		return (error_parsing_room(start_cpy, room));
 	room->name = start_cpy;
 	room->type = room_type;
