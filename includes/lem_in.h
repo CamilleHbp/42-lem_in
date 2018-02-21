@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 11:32:26 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 12:55:07 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ typedef struct	s_map
 
 typedef struct	s_way
 {
-	t_room	*room;
-	t_room	*next;
+	t_room			*room;
+	struct s_way	*next;
 }				t_way;
 
 #endif
