@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 10:14:19 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:20:17 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int			main(void)
 	if (solve_map(&map) == ERROR)
 		ft_print("map error\n");
 	//debug
-	ft_print("Printing input:\n");
+	//ft_print("Printing input:\n");
 	//debug
-	print_and_free_input(input);
+	//print_and_free_input(input);
 	//debug
 	ft_print("Printing map:\n");
 	//debug

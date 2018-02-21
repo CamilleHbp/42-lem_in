@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 16:02:29 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:36:33 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ t_room	*init_room(void)
 	room->links = NULL;
 	room->size_links = 0;
 	room->full = 0;
+	room->poss_way = 0;
 	return (room);
 }

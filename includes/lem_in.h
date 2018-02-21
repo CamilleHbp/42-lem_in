@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 12:55:07 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:36:01 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_room
 	int64_t			y;
 	struct s_room	**links;
 	uint64_t		size_links;
+	uint64_t		poss_way;
 	uint8_t			full;
 }				t_room;
 
