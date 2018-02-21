@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 09:16:04 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 11:32:26 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ typedef struct	s_room
 	int64_t			x;
 	int64_t			y;
 	struct s_room	**links;
-	uint64_t			size_links;
+	uint64_t		size_links;
+	uint8_t			full;
 }				t_room;
 
 typedef struct	s_map
@@ -40,5 +41,11 @@ typedef struct	s_map
 	uint64_t	ways;
 	int64_t		ants;
 }				t_map;
+
+typedef struct	s_way
+{
+	t_room	*room;
+	t_room	*next;
+}				t_way;
 
 #endif
