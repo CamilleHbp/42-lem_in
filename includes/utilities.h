@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 16:05:46 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:10:09 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ t_room	*get_end_room(const t_map *map);
 */
 
 void	free_way(t_way *way);
+size_t	way_len(t_way *way);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 16:07:12 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:13:10 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int8_t	solve_map(t_map *map)
 		printf(" -> %lld %lld", way->room->x, way->room->y);
 		way = way->next;
 	}
+	printf("\nlen=%zu\n", way_len(tmp));
 	free_way(tmp);
 	//save_way(way_array, way);
 	return (SUCCESS);
