@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 15:35:26 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:59:57 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,17 @@ int8_t			parse_room(char *line, t_map *map, int8_t room_type)
 	if (!line || *line == '\0' || !(room = init_room()))
 		return (ERROR);
 	idx = 0;
-	if ((room->name = get_room_name(line, &idx)) == 0)
-		return (error_parsing_room(NULL, room));
+	if ((room->name = get_room_name(line, &idx)) == NULL)
+		return (error_parsing_room(room));
 	if ((room->x = get_coordinate(line, &idx)) == ERROR)
-		return (error_parsing_room(NULL, room));
+		return (error_parsing_room(room));
 	if ((room->y = get_coordinate(line, &idx)) == ERROR)
-		return (error_parsing_room(NULL, room));
+		return (error_parsing_room(room));
 	room->type = room_type;
 	if (find_and_replace_room(map, *room) == SUCCESS)
 		free_room(room);
 	else if (add_room(map, room) == ERROR)
-		return (error_parsing_room(NULL, room));
+		return (error_parsing_room(room));
 	return (SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:59:14 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 09:08:49 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:59:15 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ int8_t	error_parsing(t_input *input, t_map *map)
 	return (ERROR);
 }
 
-int8_t	error_parsing_room(char *line_cpy, t_room *room)
+int8_t	error_parsing_room(t_room *room)
 {
-	if (line_cpy)
-		free(line_cpy);
 	if (room)
 		free(room);
 	return (ERROR);
