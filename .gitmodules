@@ -1,6 +1,6 @@
-[submodule "map_generator"]
-	path = map_generator
-	url = https://github.com/cmehay/lem-in_generator
 [submodule "libft"]
 	path = libft
 	url = https://github.com/CamilleBC/42-libft
+[submodule "map_generator"]
+	path = map_generator
+	url = https://github.com/cmehay/lem-in_generator
