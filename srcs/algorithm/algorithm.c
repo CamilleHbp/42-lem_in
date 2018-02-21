@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 10:15:10 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 11:26:00 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int8_t	solve_map(t_map *map)
 {
+	save_way(way_array, way);
 	return (SUCCESS);
 }
