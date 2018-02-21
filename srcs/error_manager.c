@@ -6,26 +6,30 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:59:14 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 14:02:16 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 09:08:49 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_manager.h"
 #include "utilities.h"
 
-int8_t	error_parsing(t_input input, t_map *map)
+int8_t	error_parsing(t_input *input, t_map *map)
 {
-	if (input.lines)
+	if (input->lines)
 	{
-		while (input.nb_lines > 0)
+		while (input->nb_lines > 0)
 		{
-			input.nb_lines -= 1;
-			free(input.lines[input.nb_lines]);
+			input->nb_lines -= 1;
+			free(input->lines[input->nb_lines]);
 		}
-		free(input.lines);
+		free(input->lines);
+		input->lines = NULL;
 	}
 	if (map)
+	{
 		free_map(map);
+		map = NULL;
+	}
 	return (ERROR);
 }
 

@@ -40,7 +40,8 @@ void	print_and_free_input(t_input input)
 		free(input.lines[i]);
 		++i;
 	}
-	free(input.lines);
+	if (input.lines)
+		free(input.lines);
 }
 
 //debug
@@ -49,8 +50,6 @@ void	print_input(t_input input)
 	int32_t	i;
 
 	i = 0;
-	// We will not print the ;ast line as it will always be rubbish
-	// while (i < input.nb_lines - 1)
 	while (i < input.nb_lines)
 	{
 		ft_print("%s\n", input.lines[i]);

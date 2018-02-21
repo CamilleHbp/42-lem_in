@@ -6,12 +6,12 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 14:33:07 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 10:14:19 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithm.h"
 #include "lem_in.h"
+#include "algorithm.h"
 #include "parsing.h"
 #include "utilities.h"
 
@@ -49,13 +49,14 @@ static void	init_map(t_map *map)
 
 int			main(void)
 {
-	int8_t	status;
 	t_map	map;
 	t_input	input;
 
 	init_map(&map);
-	if ((status = parse_map(&map, &input)) == ERROR)
+	if (parse_map(&map, &input) == ERROR)
 		ft_print("error\n");
+	if (solve_map(&map) == ERROR)
+		ft_print("map error\n");
 	//debug
 	ft_print("Printing input:\n");
 	//debug
@@ -64,7 +65,6 @@ int			main(void)
 	ft_print("Printing map:\n");
 	//debug
 	print_map(map);
-	status = SUCCESS;
 	free_map(&map);
-	return (status);
+	return (SUCCESS);
 }

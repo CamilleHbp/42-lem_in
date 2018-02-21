@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 14:33:37 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 09:24:03 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,23 @@
 
 static int8_t	check_map(t_map *map)
 {
-	// int8_t	bitfield;
+	uint8_t		start;
+	uint8_t		end;
+	uint64_t	i;
 
-	// while
-	// if (bitfield >> START)
-	// if (bitfield >> END)
-
+	i = 0;
+	start = 0;
+	end = 0;
+	while (i < map->size_rooms)
+	{
+		if (map->rooms[i]->type == START)
+			++start;
+		else if (map->rooms[i]->type == END)
+			++end;
+		++i;
+	}
+	if (start != 1 || end != 1)
+		return (ERROR);
 	return (SUCCESS);
 }
 
@@ -36,20 +47,20 @@ static int64_t	get_ants(t_input *input)
 		if (*line == '\0' || save_line(line, input) == ERROR)
 		{
 			free(line);
-			return (error_parsing(*input, NULL));
+			return (error_parsing(input, NULL));
 		}
 		if (line[0] == '#')
 			continue ;
 		i = 0;
 		while (line[i])
 			if (!(ft_isdigit(line[i++])))
-				return (error_parsing(*input, NULL));
+				return (error_parsing(input, NULL));
 		if ((i = ft_atoi64(line)) <= 0)
 			return (ERROR);
 		return (ft_abs64(i));
 	}
 	free(line);
-	return (error_parsing(*input, NULL));
+	return (error_parsing(input, NULL));
 }
 
 static int8_t	get_rooms(t_map *map, t_input *input)
@@ -63,7 +74,7 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 	while ((status = get_next_line(0, &line)) > FILE_READ)
 	{
 		if (save_line(line, input) == ERROR)
-			return (error_parsing(*input, map));
+			return (error_parsing(input, map));
 		if (line[0] == '#')
 		{
 			if (line [1] == '#')
@@ -75,7 +86,7 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 			if (check_end_rooms(line) == SUCCESS)
 				return (SUCCESS);
 			if (parse_room(line, map, room_type) == ERROR)
-				return (error_parsing(*input, map));
+				return (error_parsing(input, map));
 			room_type = ROOM;
 		}
 	}
@@ -96,7 +107,7 @@ static int8_t	get_tubes(t_map *map, t_input *input)
 	while ((status = get_next_line(0, &line)) > FILE_READ)
 	{
 		if (save_line(line, input) == ERROR)
-			return (error_parsing(*input, map));
+			return (error_parsing(input, map));
 		if (line[0] == '#')
 			continue ;
 		else
@@ -123,6 +134,5 @@ int8_t			parse_map(t_map *map, t_input *input)
 		return (ERROR);
 	if (check_map(map) == ERROR)
 		return (ERROR);
-
 	return (SUCCESS);
 }

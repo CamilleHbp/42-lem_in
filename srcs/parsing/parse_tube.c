@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 14:40:13 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 08:38:56 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ int8_t		parse_tube(char *line, t_map *map)
 		return (ERROR);
 	// search first name
 	name = ft_strsub(line, 0, (div - line));
-	if (name == '\0' || (room1 = return_room(name, *map)) == NULL)
+	if (*name == '\0' || (room1 = return_room(name, *map)) == NULL)
 		return (error_parsing_tube(name));
 	free(name);
 	// if found, search second name
 	name = ft_strsub(line, (div - line + 1), (ft_strlen(line) - (div - line)));
-	if (name == '\0' || (room2 = return_room(name, *map)) == NULL)
+	if (*name == '\0' || (room2 = return_room(name, *map)) == NULL)
 		return (error_parsing_tube(name));
 	free(name);
 	// if found create a link by taking the pointer of one and putting it in

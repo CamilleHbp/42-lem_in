@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/19 14:07:07 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/21 09:16:04 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include "libft.h"
 
-# define ROOM	(int8_t)-2
-# define START	(int8_t)-1
-# define END	(int8_t)0
+# define ROOM	(int8_t)0
+# define START	(int8_t)1
+# define END	(int8_t)2
 
 struct s_room;
 
