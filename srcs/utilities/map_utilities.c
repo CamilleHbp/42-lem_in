@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 13:04:26 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:00:12 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_room	*init_room(void)
 {
 	t_room	*room;
 
-	if (!(room = (t_room*)malloc(sizeof(t_room))))
+	if (!(room = ft_memalloc(sizeof(t_room))))
 		return (NULL);
 	room->name = NULL;
 	room->x = -1;
