@@ -6,15 +6,15 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/21 13:05:53 by briviere         ###   ########.fr        #
+#    Updated: 2018/02/21 13:32:32 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= lem-in
 
-CC		= gcc
+CC		= clang
 # CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= -Wall -Wextra -Og -g
+CFLAGS	= -Wall -Wextra -g3
 
 # sources
 VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm:./srcs/utilities
