@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 15:47:40 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:07:12 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,21 @@ t_way	*find_way(const t_map *map)
 int8_t	solve_map(t_map *map)
 {
 	t_way	*way;
+	t_way	*tmp;
 	
 	// TODO: this is a temp test
 	way = find_way(map);
 	if (way == 0 || way->room == 0)
 		return (SUCCESS);
 	printf("%lld %lld", way->room->x, way->room->y);
+	tmp = way;
 	way = way->next;
 	while (way)
 	{
 		printf(" -> %lld %lld", way->room->x, way->room->y);
 		way = way->next;
 	}
+	free_way(tmp);
 	//save_way(way_array, way);
 	return (SUCCESS);
 }
