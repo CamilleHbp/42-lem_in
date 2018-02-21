@@ -6,24 +6,24 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 14:09:21 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:26:30 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithm.h"
 #include "utilities.h"
 
-int		find_way_rec(t_way *way)
+int32_t	find_way_rec(t_way *way)
 {
 	size_t		idx;
 	int			res;
 
 	if (way->room->type == END)
-		return (1);
+		return (SUCCESS);
 	if (way->room->size_links == 0)
-		return (0);
+		return (ERROR);
 	if ((way->next = ft_memalloc(sizeof(t_way))) == 0)
-		return (0);
+		return (ALLOC_FAIL);
 	idx = 0;
 	while (idx < way->room->size_links)
 	{
@@ -33,14 +33,16 @@ int		find_way_rec(t_way *way)
 			way->next->room->full++;
 			res = find_way_rec(way->next);
 			way->next->room->full--;
-			if (res == 1)
-				return (1);
+			if (res == SUCCESS)
+				return (SUCCESS);
+			if (res == ALLOC_FAIL)
+				return (ALLOC_FAIL);
 		}
 		idx++;
 	}
 	free(way->next);
 	way->next = 0;
-	return (0);
+	return (ERROR);
 }
 
 t_way	*find_way(const t_map *map)
@@ -53,13 +55,14 @@ t_way	*find_way(const t_map *map)
 	way->room = get_start_room(map);
 	if (way->room == 0)
 	{
+		// TODO: recursive delete for t_way
 		free(way);
 		return (0);
 	}
 	way->room->full++;
 	res = find_way_rec(way);
 	way->room->full--;
-	if (res == 0)
+	if (res == ERROR || res == ALLOC_FAIL)
 	{
 		free(way);
 		return (0);
