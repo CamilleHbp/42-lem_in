@@ -6,14 +6,14 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 13:17:19 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:40:21 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithm.h"
 #include "utilities.h"
 
-int64_t	find_shortest_way(t_way *way)
+int64_t	find_shortest_way(t_way *way, int64_t depth)
 {
 	size_t	idx;
 	t_way	*way_sh;
@@ -23,6 +23,8 @@ int64_t	find_shortest_way(t_way *way)
 
 	if (way->room->type == END)
 		return (1);
+	if (depth == 0)
+		return (ERROR);
 	if (way->room->full)
 		return (ERROR);
 	way_sh = 0;
@@ -34,7 +36,7 @@ int64_t	find_shortest_way(t_way *way)
 		if ((way_tmp = ft_memalloc(sizeof(t_way))) == 0)
 			return (ALLOC_FAIL);
 		way_tmp->room = way->room->links[idx];
-		way_tmp_len = find_shortest_way(way_tmp);
+		way_tmp_len = find_shortest_way(way_tmp, (depth < 0 ? -1 : depth - 1));
 		if (way_tmp_len > 0 && way_tmp && (way_tmp_len < way_sh_len || way_sh_len == (size_t)-1))
 		{
 			free_way(way_sh);
@@ -103,7 +105,7 @@ int8_t	solve_map(t_map *map)
 
 	way = ft_memalloc(sizeof(t_way));
 	way->room = get_start_room(map);
-	ft_print("%d\n", find_shortest_way(way));
+	ft_print("%d\n", find_shortest_way(way, -1));
 	print_way(way);
 	free_way(way);
 	// TODO: this is a temp test
