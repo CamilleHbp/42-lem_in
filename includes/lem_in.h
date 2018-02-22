@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 10:20:53 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:53:12 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # define ROOM	(int8_t)0
 # define START	(int8_t)1
 # define END	(int8_t)2
-
-struct s_room;
 
 typedef struct	s_room
 {
@@ -46,6 +44,8 @@ typedef struct	s_way
 {
 	t_room			*room;
 	struct s_way	*next;
+	struct s_way	*prev;
+	uint64_t		depth;
 }				t_way;
 
 #endif

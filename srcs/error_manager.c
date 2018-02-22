@@ -6,12 +6,37 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:59:14 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 15:59:15 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:44:29 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_manager.h"
 #include "utilities.h"
+
+void	*error_overwatch(uint64_t nb_ways, t_way ***ways)
+{
+	uint64_t	i;
+	uint64_t	j;
+
+	if (ways)
+	{
+		i = 0;
+		while (i < nb_ways)
+		{
+			j = 0;
+			if (ways[i])
+			{
+				while (j <= i)
+					if (ways[i][j])
+						free_way(ways[i][j]);
+				free(ways[i]);
+			}
+		}
+		free(ways);
+		ways = NULL;
+	}
+	return (NULL);
+}
 
 int8_t	error_parsing(t_input *input, t_map *map)
 {
