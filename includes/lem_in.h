@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 11:46:34 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:54:05 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define START	(int8_t)1
 # define END	(int8_t)2
 
-struct s_room;
+# define DEF_LINKS_ALLOC 16
 
 typedef struct	s_room
 {
@@ -31,6 +31,7 @@ typedef struct	s_room
 	int64_t			y;
 	struct s_room	**links;
 	uint64_t		size_links;
+	uint64_t		alloc_links;
 	uint8_t			full;
 }				t_room;
 

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 13:28:37 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:56:02 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,14 @@ static int8_t	link_rooms(t_room *room, t_room *to_link)
 		++i;
 	}
 	// TODO: 
-	if (!(room->links = ft_realloc(room->links,
-								sizeof(t_room*) * room->size_links,
-								sizeof(t_room*) * (room->size_links + 1))))
-		return (ERROR);
+	if ((room->size_links + 1) >= room->alloc_links)
+	{
+		if (!(room->links = ft_realloc(room->links,
+								sizeof(t_room*) * room->alloc_links,
+								sizeof(t_room*) * (room->alloc_links * 2))))
+			return (ERROR);
+		room->alloc_links *= 2;
+	}
 	room->links[room->size_links] = to_link;
 	room->size_links += 1;
 	return (SUCCESS);

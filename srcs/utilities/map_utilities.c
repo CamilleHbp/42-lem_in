@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 16:36:33 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:56:14 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,13 @@ t_room	*init_room(void)
 	room->x = -1;
 	room->y = -1;
 	room->type = ROOM;
-	room->links = NULL;
+	if ((room->links = malloc(sizeof(t_room *) * DEF_LINKS_ALLOC)) == NULL)
+	{
+		free(room);
+		return (NULL);
+	}
 	room->size_links = 0;
+	room->alloc_links = DEF_LINKS_ALLOC;
 	room->full = 0;
-	room->poss_way = 0;
 	return (room);
 }
