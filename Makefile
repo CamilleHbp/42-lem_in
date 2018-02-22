@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/21 17:22:38 by briviere         ###   ########.fr        #
+#    Updated: 2018/02/22 17:19:23 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= lem-in
 
 CC		= clang
 # CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= -Wall -Wextra -g3 -fsanitize=address
+CFLAGS	= -Wall -Wextra -O2 -fsanitize=address
 
 # sources
 VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm:./srcs/utilities

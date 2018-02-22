@@ -21,6 +21,8 @@
 # define START	(int8_t)1
 # define END	(int8_t)2
 
+# define DEF_LINKS_ALLOC 16
+
 typedef struct	s_room
 {
 	char			*name;
@@ -29,6 +31,7 @@ typedef struct	s_room
 	int64_t			y;
 	struct s_room	**links;
 	uint64_t		size_links;
+	uint64_t		alloc_links;
 	uint8_t			full;
 }				t_room;
 
