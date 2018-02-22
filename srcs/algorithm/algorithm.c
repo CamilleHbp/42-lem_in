@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 10:30:43 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 11:30:32 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,23 @@ int64_t	find_way(t_way *way)
 	return (ERROR);
 }
 
+/* Logic:
+**
+** Dans cet exemple il y a deux chemins max. Sinon on lance une recursive par
+** chenmin max possible.
+**
+** F1:
+** On lance rec 1 et on sauve dans WA-1.
+** F2:
+** On lance rec 2 et on sauve dans WB-1.
+**
+** Si F2 retourne FALSE, on relance F1 avec une copie de WA-1 appelee WA-2.
+** WA-2 est une copie de WA-1 avec ces differences:
+**	- tant que les rooms ont un seul link, on revient en arriere.
+**	- Des qu'on trouve une room avec plus d'un link, on set way a cette piece.
+**	- La room next reste full, tout le reste de WA-1 est libere (full=0).
+*/
+
 t_way	**find_ways(const t_map *map)
 {
 	t_room	*start;
@@ -64,7 +81,7 @@ int8_t	solve_map(t_map *map)
 	t_way	**ways;
 	t_way	*way;
 	t_way	*tmp;
-	
+
 	// TODO: this is a temp test
 	idx = 0;
 	ways = find_ways(map);

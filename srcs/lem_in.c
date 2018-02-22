@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 10:30:56 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 11:16:59 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ static void	init_map(t_map *map)
 ** A room definition is as follows: name [space] x [space] y
 ** All parameters are separated by at least one space or tab.
 ** The name is a string of characters that CANNOT have a '-' in their names
-** as it is reserved for tubes.
+** as it is reserved for tubes. It cannot have a ' ' in their names as well
+** before they are used to delimit parameters.
+**
 ** Coordinates are integers that can fit in a signed 64 bits value.
 ** The number of rooms must fit in a 64 bits unsigned integer.
 **
