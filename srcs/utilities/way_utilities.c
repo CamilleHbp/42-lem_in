@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:04:45 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/21 16:31:03 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:04:09 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	free_way(t_way *way)
 {
+	if (way == 0)
+		return ;
 	if (way->next)
 		free_way(way->next);
 	free(way);
@@ -21,7 +23,9 @@ void	free_way(t_way *way)
 
 size_t	way_len(t_way *way)
 {
-	if (way == 0)
+	if (way == 0 || way->room == 0)
 		return (0);
+	if (way->room->type == END)
+		return (1);
 	return (way_len(way->next) + 1);
 }
