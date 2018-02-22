@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 17:20:17 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 10:30:56 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int			main(void)
 	//debug
 	//print_and_free_input(input);
 	//debug
-	ft_print("Printing map:\n");
+	//ft_print("Printing map:\n");
 	//debug
-	print_map(map);
+	//print_map(map);
 	free_map(&map);
 	return (SUCCESS);
 }
