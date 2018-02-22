@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 13:40:21 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:45:57 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ int64_t	find_shortest_way(t_way *way, int64_t depth)
 
 	if (way->room->type == END)
 		return (1);
-	if (depth == 0)
-		return (ERROR);
-	if (way->room->full)
+	if (way->room->full || depth == 0)
 		return (ERROR);
 	way_sh = 0;
 	way_sh_len = (size_t)-1;
@@ -48,7 +46,7 @@ int64_t	find_shortest_way(t_way *way, int64_t depth)
 		idx++;
 	}
 	way->next = way_sh;
-	if (way_sh == 0)
+	if (way_sh == 0 || way_sh_len == (size_t)-1)
 	{
 		way->room->full = 0;
 		return (ERROR);
@@ -105,7 +103,7 @@ int8_t	solve_map(t_map *map)
 
 	way = ft_memalloc(sizeof(t_way));
 	way->room = get_start_room(map);
-	ft_print("%d\n", find_shortest_way(way, -1));
+	ft_print("%d\n", find_shortest_way(way, 1));
 	print_way(way);
 	free_way(way);
 	// TODO: this is a temp test

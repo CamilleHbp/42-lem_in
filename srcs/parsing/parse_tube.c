@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 08:38:56 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:28:37 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static int8_t	link_rooms(t_room *room, t_room *to_link)
 			return (SUCCESS);
 		++i;
 	}
+	// TODO: 
 	if (!(room->links = ft_realloc(room->links,
 								sizeof(t_room*) * room->size_links,
 								sizeof(t_room*) * (room->size_links + 1))))
