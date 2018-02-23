@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 10:30:56 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/23 10:35:05 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int			main(void)
 	init_map(&map);
 	if (parse_map(&map, &input) == ERROR)
 		ft_print("error\n");
+	// TODO: if no path to end, do not print
+	print_input(input);
 	if (solve_map(&map) == ERROR)
 		ft_print("map error\n");
 	//debug
