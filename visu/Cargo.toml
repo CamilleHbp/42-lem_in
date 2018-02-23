@@ -1,0 +1,8 @@
+[package]
+name = "visu"
+version = "0.1.0"
+authors = ["babariviere <babariviere@protonmail.com>"]
+
+[dependencies]
+failure = "0.1.1"
+piston_window = "0.77.0"
