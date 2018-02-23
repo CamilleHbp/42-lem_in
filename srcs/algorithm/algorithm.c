@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/23 09:25:37 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/23 10:04:42 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int8_t	solve_map(t_map *map)
 	way = ft_memalloc(sizeof(t_way));
 	way->room = start;
 	depth = 1;
-	ft_print("links=%d\n", way->room->size_links);
+	ft_print("ants=%d, links=%d\n", map->ants, way->room->size_links);
 	while (find_way_depth(way, depth) != SUCCESS)
 	{
 		depth++;

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 15:59:57 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/23 09:39:01 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ static char		*get_room_name(char *line, size_t *idx)
 		idx_end++;
 	res = ft_strsub(line, *idx, idx_end);
 	*idx = idx_end;
+	if (res[0] == 'L' || res[0] == '-')
+	{
+		free(res);
+		return (0);
+	}
 	return (res);
 }
 
