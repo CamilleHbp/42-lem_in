@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/22 17:19:23 by briviere         ###   ########.fr        #
+#    Updated: 2018/02/23 09:07:49 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CFLAGS	= -Wall -Wextra -O2 -fsanitize=address
 VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm:./srcs/utilities
 SRCS	=	lem_in.c \
 			error_manager.c
-SRCS	+=	algorithm.c
+SRCS	+=	algorithm.c \
+			mv_ants.c
 SRCS	+=	check_map.c \
 			parse_room.c \
 			parse_tube.c \

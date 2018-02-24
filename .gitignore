@@ -6,3 +6,4 @@ lem_in.dSYM
 obj/*
 lem_in
 test/*
+visu/target/*
