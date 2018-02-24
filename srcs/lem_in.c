@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/23 15:11:48 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/24 20:12:24 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 #include "algorithm.h"
 #include "parsing.h"
 #include "utilities.h"
-
-static void	init_map(t_map *map)
-{
-	map->ants = 0;
-	map->rooms = NULL;
-	map->size_rooms = 0;
-	map->ways = 0;
-}
 
 /*
 ** -h --help: rules
@@ -53,20 +45,25 @@ int			main(void)
 {
 	t_map	map;
 	t_input	input;
+	int32_t	i;
 
 	init_map(&map);
 	if (parse_map(&map, &input) == ERROR)
 		ft_print("error\n");
-	if (solve_map(&map) == ERROR)
-		ft_print("map error\n");
+	// if (solve_map(&map) == ERROR)
+		// ft_print("map error\n");
 	//debug
 	//ft_print("Printing input:\n");
 	//debug
 	//print_and_free_input(input);
 	//debug
-	//ft_print("Printing map:\n");
+	ft_print("Printing map:\n");
 	//debug
-	//print_map(map);
+	print_map(map);
 	free_map(&map);
+	i = 0;
+	while (i < input.nb_lines)
+		free(input.lines[i++]);
+	free(input.lines);
 	return (SUCCESS);
 }

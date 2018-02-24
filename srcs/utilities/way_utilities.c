@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:04:45 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/24 15:05:34 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:50:49 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	clear_way(t_way *way)
 {
 	if (!way || !way->room)
 		return ;
-	way->room->full = 0;
+	way->room->visited = 0;
 	clear_way(way->next);
 }
 

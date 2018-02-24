@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 15:19:19 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:50:49 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int8_t	solve_map(t_map *map)
 	ways[0] = way;
 	ways[1] = 0;
 	clear_way(way);
-	start->full = map->ants;
+	start->visited = map->ants;
 	// while (mv_ants(ways) == SUCCESS)
 		// ;
 	free_way(way);

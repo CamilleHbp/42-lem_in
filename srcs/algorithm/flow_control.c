@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 15:30:26 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:50:49 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 ** WA-2 est une copie de WA-1 avec ces differences:
 **	- tant que les rooms ont un seul link, on revient en arriere.
 **	- Des qu'on trouve une room avec plus d'un link, on set way a cette piece.
-**	- La room next reste full, tout le reste de WA-1 est libere (full=0).
+**	- La room next reste visited, tout le reste de WA-1 est libere (visited=0).
 **
 ** On trouve le chemin le plus court pour F1. Si il est bon, on cherche un
 ** chemin de longueur identique, et on incremente si on ne trouve pas.
@@ -68,7 +68,7 @@
 **
 ** 1- find an augmenting path
 **	Edges for the augmenting path:
-**		a- Non-full forward edge
+**		a- Non-visited forward edge
 **		b- Non-empty backward edge
 **	We first find the shortest path. And fill the capacity of the edge
 */
@@ -92,9 +92,9 @@ t_way	**init_2darray(int64_t nb_ways)
 /*
 ** Logic:
 **	1- We find the shortest way possible, way 1
-**	2- We launch the algorithm to find a way 2 and check if we encounter a full
+**	2- We launch the algorithm to find a way 2 and check if we encounter a visited
 **		room on the next pointer for any room on the bfs.
-**	3- If it is the only way possible and it is full, we free the way 1 and
+**	3- If it is the only way possible and it is visited, we free the way 1 and
 **		continue our search on way 2.
 **	4- we save way 2 and relaunch way 1 before the intersection.
 **	5- If we are able to finish way 1, we check if depending on the number of
@@ -129,6 +129,7 @@ t_way	***find_da_wae(const t_map *map)
 		ways[way_array][way]->room = start;
 		if (breadth_first_seach(ways[way_array][way]) == ERROR && way > 0)
 		{
+			// on free le precedent et on reprend depuis la collision
 			free_way(ways[way_array][way]);
 			--way_array;
 			backtrack_way(ways[way_array][way_array]);

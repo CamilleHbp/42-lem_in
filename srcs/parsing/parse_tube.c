@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 15:32:59 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/24 20:15:26 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,12 @@ static t_room	*return_room(char *name, t_map map)
 	return (NULL);
 }
 
-static int8_t	link_rooms(t_room *room, t_room *to_link)
+static void		link_rooms(t_room *room1, t_room *room2, uint64_t *matrix)
 {
-	uint64_t	i;
-
-	i = 0;
-	while (i < room->size_links)
-	{
-		if (!ft_strcmp(room->links[i]->name, to_link->name))
-			return (SUCCESS);
-		++i;
-	}
-	if ((room->size_links + 1) >= room->alloc_links)
-	{
-		if (!(room->links = ft_realloc(room->links,
-								sizeof(t_room *) * room->alloc_links,
-								sizeof(t_room *) * (room->alloc_links * 2))))
-			return (ERROR);
-		room->alloc_links *= 2;
-	}
-	room->links[room->size_links] = to_link;
-	room->size_links += 1;
-	return (SUCCESS);
+	matrix[room1->id] |= 1ULL << room2->id;
+	matrix[room2->id] |= 1ULL << room1->id;
+	ft_print("Room1 ID: %d\n", room1->id);
+	ft_print("Room2 ID: %d\n", room2->id);
 }
 
 int8_t		parse_tube(char *line, t_map *map)
@@ -61,19 +45,14 @@ int8_t		parse_tube(char *line, t_map *map)
 
 	if ((div = ft_strchr(line, '-')) != ft_strrchr(line, '-') || !div)
 		return (ERROR);
-	// search first name
 	name = ft_strsub(line, 0, (div - line));
 	if (*name == '\0' || (room1 = return_room(name, *map)) == NULL)
 		return (error_parsing_tube(name));
 	free(name);
-	// if found, search second name
 	name = ft_strsub(line, (div - line + 1), (ft_strlen(line) - (div - line)));
 	if (*name == '\0' || (room2 = return_room(name, *map)) == NULL)
 		return (error_parsing_tube(name));
 	free(name);
-	// if found create a link by taking the pointer of one and putting it in
-	// the links of the other.
-	if (link_rooms(room1, room2) == ERROR || link_rooms(room2, room1) == ERROR)
-		return (ERROR);
+	link_rooms(room1, room2, map->adj_matrix);
 	return (SUCCESS);
 }

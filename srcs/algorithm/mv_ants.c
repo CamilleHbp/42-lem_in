@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/24 15:19:21 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:50:49 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int8_t		do_move(t_way *way, int8_t *first)
 	if (!way || !way->next)
 		return (ERROR);
 	res = do_move(way->next, first);
-	if (way->room->type == END || !way->room->full ||
-			(way->next->room->full && way->next->room->type != END))
+	if (way->room->type == END || !way->room->visited ||
+			(way->next->room->visited && way->next->room->type != END))
 		return (res);
-	way->room->full--;
-	way->next->room->full++;
+	way->room->visited--;
+	way->next->room->visited++;
 	if (!*first)
 		ft_putchar(' ');
 	ft_print("L%d-%s", way->room->name, way->next->room->name);

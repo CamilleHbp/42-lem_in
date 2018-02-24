@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:11:03 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 14:36:46 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/24 20:19:32 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	print_map(t_map map)
 	while (i < map.size_rooms)
 	{
 		print_room(*(map.rooms[i]));
+		ft_print("Matrix: \n%b\n", map.adj_matrix[i]);
 		++i;
 	}
 }
@@ -73,8 +74,6 @@ void	print_map(t_map map)
 //debug
 void	print_room(t_room room)
 {
-	uint64_t	i;
-
 	ft_print("------------\nROOM\n");
 	ft_print("Name: %s\n", room.name);
 	if (room.type == ROOM)
@@ -87,25 +86,19 @@ void	print_room(t_room room)
 		ft_print("Type: *unkown*\n");
 	ft_print("X: %d\n", (int64_t)room.x);
 	ft_print("Y: %d\n", (int64_t)room.y);
-	i = 0;
-	while (i < room.size_links)
-	{
-		ft_print("Link #%d: %s\n", i, room.links[i]->name);
-		++i;
-	}
 }
 
 //debug
 void	print_links(t_room room)
 {
-	uint64_t	i;
+	// uint64_t	i;
 
-	ft_print("------------\nROOM LINKS\n");
-	ft_print("Name: %s\n", room.name);
-	i = 0;
-	while (i < room.size_links)
-	{
-		ft_print("Link #%d: %s\n", i, room.links[i]->name);
-		++i;
-	}
+	// ft_print("------------\nROOM LINKS\n");
+	// ft_print("Name: %s\n", room.name);
+	// i = 0;
+	// while (i < room.size_links)
+	// {
+		// ft_print("Link #%d: %s\n", i, room.links[i]->name);
+		// ++i;
+	// }
 }

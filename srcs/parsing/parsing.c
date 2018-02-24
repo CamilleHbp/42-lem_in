@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/21 09:24:03 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:49:56 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ int8_t			parse_map(t_map *map, t_input *input)
 	if ((map->ants = get_ants(input)) <= 0)
 		return (ERROR);
 	if (get_rooms(map, input) == ERROR)
+		return (ERROR);
+	if (!(map->adj_matrix = ft_memalloc(sizeof(uint64_t) * map->size_rooms)))
 		return (ERROR);
 	if (get_tubes(map, input) == ERROR)
 		return (ERROR);
