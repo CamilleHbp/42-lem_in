@@ -2,8 +2,8 @@
 .vscode
 *.code-workspace
 lem-in
-lem_in.dSYM
+map_generator/lem-in_gen
+lem-in.dSYM
 obj/*
-lem_in
 test/*
 visu/target/*

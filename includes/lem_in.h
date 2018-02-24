@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 13:53:12 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:00:13 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,23 @@ typedef struct	s_room
 {
 	char			*name;
 	int8_t			type;
+	int64_t			index;
 	int64_t			x;
 	int64_t			y;
-	struct s_room	**links;
-	uint64_t		size_links;
-	uint64_t		alloc_links;
-	uint8_t			full;
+	uint8_t			visited;
 }				t_room;
+
+typedef struct	s_matrix
+{
+	uint64_t	*adjency;
+	uint64_t	*cumulative_degree;
+}				t_matrix;
 
 typedef struct	s_map
 {
 	t_room		**rooms;
 	uint64_t	size_rooms;
+	t_matrix	adj_matrix;
 	uint64_t	ways;
 	int64_t		ants;
 }				t_map;
