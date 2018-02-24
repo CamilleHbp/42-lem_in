@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/23 15:11:48 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/24 16:15:03 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int			main(void)
 {
 	t_map	map;
 	t_input	input;
+	size_t	i;
 
 	init_map(&map);
 	if (parse_map(&map, &input) == ERROR)
@@ -69,5 +70,9 @@ int			main(void)
 	//debug
 	//print_map(map);
 	free_map(&map);
+	i = 0;
+	while (i < input.nb_lines)
+		free(input.lines[i++]);
+	free(input.lines);
 	return (SUCCESS);
 }
