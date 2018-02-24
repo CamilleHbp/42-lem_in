@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mv_ants.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/23 10:04:14 by briviere         ###   ########.fr       */
+/*   Updated: 2018/02/24 15:19:21 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int8_t		do_move(t_way *way, int8_t *first)
 	way->next->room->full++;
 	if (!*first)
 		ft_putchar(' ');
-	ft_print("L%s-%s", way->room->name, way->next->room->name);
+	ft_print("L%d-%s", way->room->name, way->next->room->name);
 	*first = 0;
 	return (SUCCESS);
 }

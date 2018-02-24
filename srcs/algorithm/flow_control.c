@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 15:03:19 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/24 15:30:26 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,6 @@ t_way	**init_2darray(int64_t nb_ways)
 	return (ways);
 }
 
-t_way	**find_all_ways_from_room(t_way *way)
-{
-
-}
-
 /*
 ** Logic:
 **	1- We find the shortest way possible, way 1
@@ -107,10 +102,11 @@ t_way	**find_all_ways_from_room(t_way *way)
 **	6- If it is, we save the ways, and launch the bfs again, etc.
 */
 
-t_way	***find_me_da_weay(const t_map *map)
+t_way	***find_da_wae(const t_map *map)
 {
 	t_room	*start;
 	t_way	***ways;
+	size_t	backtrack;
 	size_t	way;
 	size_t	way_array;
 
@@ -122,24 +118,20 @@ t_way	***find_me_da_weay(const t_map *map)
 	while (way < map->ways)
 	{
 		way = 0;
-		while (way <= way_array)
+		while (way < way_array)
 		{
-			if (!(ways[way_array][way] = ft_memalloc(sizeof(t_way))))
+			if (!(ways[way_array][way] = dup_way(ways[way_array - 1][way])))
 				return (error_overwatch(map->ways, ways));
-			ways[way_array][way]->room = start;
-			if (find_way(ways[way_array][way], depth) == ERROR)
-			{
-				// si on
-				if (way == 0)
-					return (ways);
-				else
-				{
-					free_way(ways[way_array][way]);
-					--way_array;
-					backtrack_way(ways[way_array][way_array]);
-				}
-			}
-			way++;
+			++way;
+		}
+		if (!(ways[way_array][way] = ft_memalloc(sizeof(t_way))))
+			return (error_overwatch(map->ways, ways));
+		ways[way_array][way]->room = start;
+		if (breadth_first_seach(ways[way_array][way]) == ERROR && way > 0)
+		{
+			free_way(ways[way_array][way]);
+			--way_array;
+			backtrack_way(ways[way_array][way_array]);
 		}
 		++way_array;
 	}
