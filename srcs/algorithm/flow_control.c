@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   overwatch.c                                        :+:      :+:    :+:   */
+/*   flow_control.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/22 13:00:09 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/22 18:28:52 by cbaillat         ###   ########.fr       */
+/*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
+/*   Updated: 2018/02/24 15:03:19 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 ** On copie le chemin le plus rapide dans l'index way[1][0] et on lance la
 ** recursive pour trouver un autre chemin vers END.
 ** Si on trouve c'est cool, sinon on backtrack sur le premier way et on relance
-** la recursive. Ainsi de suite. Si on ne trouve rien alors le seul chemin possibl
-** est celui sauvegarde dans l'index way[0].
+** la recursive. Ainsi de suite. Si on ne trouve rien alors le seul chemin
+** possible est celui sauvegarde dans l'index way[0].
 **
 ** On procede de meme
 **
@@ -57,6 +57,24 @@
 **
 */
 
+/*
+** To be able to find multiple ways in case of too many ants
+** and multiple ways, we need to manage the flow in our graph.
+**
+** 1- find an augmenting path
+** 2- compute the bottleneck capacity
+** 3- augment each edge and the total flow
+**
+**
+** 1- find an augmenting path
+**	Edges for the augmenting path:
+**		a- Non-full forward edge
+**		b- Non-empty backward edge
+**	We first find the shortest path. And fill the capacity of the edge
+*/
+
+
+
 t_way	**init_2darray(int64_t nb_ways)
 {
 	t_way	***ways;
@@ -76,6 +94,19 @@ t_way	**find_all_ways_from_room(t_way *way)
 
 }
 
+/*
+** Logic:
+**	1- We find the shortest way possible, way 1
+**	2- We launch the algorithm to find a way 2 and check if we encounter a full
+**		room on the next pointer for any room on the bfs.
+**	3- If it is the only way possible and it is full, we free the way 1 and
+**		continue our search on way 2.
+**	4- we save way 2 and relaunch way 1 before the intersection.
+**	5- If we are able to finish way 1, we check if depending on the number of
+**		ants and the lenghts of the ways, it is worth saving them.
+**	6- If it is, we save the ways, and launch the bfs again, etc.
+*/
+
 t_way	***find_me_da_weay(const t_map *map)
 {
 	t_room	*start;
@@ -85,14 +116,8 @@ t_way	***find_me_da_weay(const t_map *map)
 
 	start = get_start_room(map);
 	ft_print("nb ways=%u\n", map->ways);
-
 	if (!(ways = init_2darray(map->ways)))
 		return (NULL);
-
-	// maintenant que le chemin le plus court est trouvé, on tente de trouve le
-	// reste des chemins.
-	// Si on fail pour le chemin N, on revient au chemin N-1 et on copie le
-	// chemin jusqu'à ce que les rooms aient plusieurs links.
 	way_array = 0;
 	while (way < map->ways)
 	{

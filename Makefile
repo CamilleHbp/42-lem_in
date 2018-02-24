@@ -6,21 +6,23 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/23 09:07:49 by briviere         ###   ########.fr        #
+#    Updated: 2018/02/24 15:02:34 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= lem-in
 
-CC		= clang
+CC		= gcc
 # CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= -Wall -Wextra -O2 -fsanitize=address
+CFLAGS	= -Wall -Wextra -fsanitize=address
 
 # sources
 VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm:./srcs/utilities
 SRCS	=	lem_in.c \
 			error_manager.c
 SRCS	+=	algorithm.c \
+			bfs.c \
+			dfs.c \
 			mv_ants.c
 SRCS	+=	check_map.c \
 			parse_room.c \
