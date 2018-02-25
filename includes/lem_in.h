@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 11:55:20 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 13:00:29 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include "libft.h"
 
+# define FOUND	(int8_t)-2
 # define ROOM	(int8_t)0
 # define START	(int8_t)1
 # define END	(int8_t)2
@@ -37,7 +38,7 @@ typedef struct	s_room
 typedef struct	s_map
 {
 	t_room		**rooms;
-	uint64_t	size_rooms;
+	uint32_t	size_rooms;
 	uint64_t	*adj_matrix;
 	uint64_t	ways;
 	int64_t		ants;

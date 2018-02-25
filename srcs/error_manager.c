@@ -6,14 +6,14 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:59:14 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 11:40:28 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 13:02:44 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_manager.h"
 #include "utilities.h"
 
-void	*error_overwatch(uint64_t nb_ways, t_way ***ways)
+void	*error_flow_control(uint64_t nb_ways, t_way ***ways)
 {
 	uint64_t	i;
 	uint64_t	j;

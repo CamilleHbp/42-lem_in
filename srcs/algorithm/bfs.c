@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 14:44:20 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 12:23:33 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 13:00:56 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_way	*build_way_from_end(t_way *prev_way, t_room *end)
 	if (!(way = ft_memalloc(sizeof(t_way))))
 		return (NULL);
 	way->room = end;
+	way->room->visited = 1;
 	while (way->room->prev)
 	{
 		tmp = way;
@@ -31,6 +32,7 @@ static t_way	*build_way_from_end(t_way *prev_way, t_room *end)
 			return (NULL);
 		}
 		way->room = tmp->room->prev;
+		way->room->visited = 1;
 		way->next = tmp;
 		tmp->prev = way;
 	}
@@ -46,17 +48,19 @@ static t_way	*build_way_from_end(t_way *prev_way, t_room *end)
 	return (way);
 }
 
-int8_t			return_shortest_path(t_deque *deque, t_map *map)
+int64_t			return_shortest_path(t_deque *deque, t_map *map)
 {
 	uint64_t	neighbour_id;
+	int64_t		collision;
 	t_room		*room;
 	t_room		*neighbour;
 
+	collision = ERROR;
 	while (deque->head)
 	{
 		room = ft_deque_pop_front(deque);
 		if (room->type == END)
-			return (SUCCESS); //we found the room
+			return (FOUND); //we found the room
 		else
 		{
 			// find a way to get the id of neighbours
@@ -71,12 +75,14 @@ int8_t			return_shortest_path(t_deque *deque, t_map *map)
 						neighbour->prev = room;
 						ft_deque_push_back(deque, (void*)neighbour);
 					}
+					else if (neighbour->prev && collision == ERROR)
+						collision = neighbour->id;
 				}
 				++neighbour_id;
 			}
 		}
 	}
-	return (ERROR);
+	return (collision);
 }
 
 t_way			*breadth_first_search(t_map *map, t_way *way, t_room *room)
@@ -89,6 +95,9 @@ t_way			*breadth_first_search(t_map *map, t_way *way, t_room *room)
 		ft_deque_delete(deque);
 		return (NULL);
 	}
+	// return shortest will either return FOUND, ERROR (negative)
+	// or a positive number that wil represent the room where the first collision
+	// took place
 	if (return_shortest_path(deque, map) == SUCCESS)
 		way = build_way_from_end(way, get_end_room(map));
 	ft_deque_delete(deque);

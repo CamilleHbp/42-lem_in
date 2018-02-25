@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 18:23:28 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 12:46:44 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ int8_t			parse_room(char *line, t_map *map, int8_t room_type)
 	size_t	idx;
 	t_room	*room;
 
-	if (!line || *line == '\0' || !(room = init_room()))
+	if (!line || *line == '\0' || map->size_rooms >= UINT32_MAX
+			|| !(room = init_room()))
 		return (ERROR);
 	idx = 0;
 	if ((room->name = get_room_name(line, &idx)) == NULL)

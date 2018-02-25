@@ -6,11 +6,13 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 12:04:32 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 13:09:29 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithm.h"
+#include "error_manager.h"
+#include "utilities.h"
 
 /* Logic:
 **
@@ -85,7 +87,7 @@ t_way	**init_2darray(int64_t nb_ways)
 	i = 0;
 	while (i < ways)
 		if (!(ways[i] = ft_memalloc(sizeof(t_way *) * (i + 1))))
-			return (error_overwatch(nb_ways, ways));
+			return (error_flow_control(nb_ways, ways));
 	return (ways);
 }
 
@@ -104,36 +106,42 @@ t_way	**init_2darray(int64_t nb_ways)
 
 t_way	***find_da_wae(const t_map *map)
 {
-	t_room	*start;
 	t_way	***ways;
-	size_t	backtrack;
+	int64_t	collision;
 	size_t	way;
 	size_t	way_array;
 
-	start = get_start_room(map);
 	ft_print("nb ways=%u\n", map->ways);
 	if (!(ways = init_2darray(map->ways)))
 		return (NULL);
 	way_array = 0;
 	while (way < map->ways)
 	{
+		// ETAPE 1: On copie les chemins precedents dans le tableau (pas besoin
+		// de tout recalculer)
 		way = 0;
 		while (way < way_array)
 		{
 			if (!(ways[way_array][way] = dup_way(ways[way_array - 1][way])))
-				return (error_overwatch(map->ways, ways));
+				return (error_flow_control(map->ways, ways));
 			++way;
 		}
 		if (!(ways[way_array][way] = ft_memalloc(sizeof(t_way))))
-			return (error_overwatch(map->ways, ways));
-		ways[way_array][way]->room = start;
-		if (ways[way_array][way] = breadth_first_seach(map) == ERROR && way > 0)
+			return (error_flow_control(map->ways, ways));
+		//ETAPE 2: On cherche a trouver le nouveau chemin
+		// Si on ne trouve pas, on revient en arriere, jusqua trouver un truc
+		// qui passe
+		//boucle a rajouter pour tourner jusqu'a avoir le chemin X
+		ways[way_array][way]->room = get_start_room(map);
+		if ((collision = breadth_first_search(map, ways[way_array][way], )) && way > 0)
 		{
 			// on free le precedent et on reprend depuis la collision
+			--way;
 			free_way(ways[way_array][way]);
-			--way_array;
-			backtrack_way(ways[way_array][way_array]);
+			ways[way_array][way]->room = get_start_room(map);
 		}
+		if (!(ways[way_array][way]) && way == 0)
+			return (ways);
 		++way_array;
 	}
 	return (ways);
