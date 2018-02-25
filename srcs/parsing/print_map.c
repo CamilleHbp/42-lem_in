@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:11:03 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 20:19:32 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 10:39:21 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	print_room(t_room room)
 {
 	ft_print("------------\nROOM\n");
 	ft_print("Name: %s\n", room.name);
+	ft_print("ID: %d\n", room.id);
 	if (room.type == ROOM)
 		ft_print("Type: room\n");
 	else if (room.type == START)
@@ -89,16 +90,12 @@ void	print_room(t_room room)
 }
 
 //debug
-void	print_links(t_room room)
+void	print_reverse_way(t_room *end)
 {
-	// uint64_t	i;
-
-	// ft_print("------------\nROOM LINKS\n");
-	// ft_print("Name: %s\n", room.name);
-	// i = 0;
-	// while (i < room.size_links)
-	// {
-		// ft_print("Link #%d: %s\n", i, room.links[i]->name);
-		// ++i;
-	// }
+	ft_print("------------\nReverse Way\n");
+	while (end->prev)
+	{
+		ft_print("%s <- %s\n", end->name, end->prev->name);
+		end = end->prev;
+	}
 }

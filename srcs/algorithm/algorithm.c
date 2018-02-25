@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 17:50:49 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 10:23:12 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int8_t	solve_map(t_map *map)
 	start = get_start_room(map);
 	way = ft_memalloc(sizeof(t_way));
 	way->room = start;
-	if (breadth_first_seach(way) == ERROR)
+	if (breadth_first_search(map, way) == ERROR)
 	{
 		free_way(way);
 		return (ERROR);

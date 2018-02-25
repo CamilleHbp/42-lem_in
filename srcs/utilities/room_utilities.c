@@ -6,13 +6,13 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 13:04:43 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/24 20:17:10 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 09:50:14 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
 
-int8_t		add_room(t_map *map, t_room *room)
+int8_t	add_room(t_map *map, t_room *room)
 {
 	static uint64_t	i;
 
@@ -26,7 +26,7 @@ int8_t		add_room(t_map *map, t_room *room)
 	return (SUCCESS);
 }
 
-void		free_room(t_room *room)
+void	free_room(t_room *room)
 {
 	if (room)
 	{
@@ -36,39 +36,7 @@ void		free_room(t_room *room)
 	}
 }
 
-t_room		*get_start_room(const t_map *map)
-{
-	t_room		*tmp;
-	size_t		idx;
-
-	idx = 0;
-	while (idx < map->size_rooms)
-	{
-		tmp = map->rooms[idx];
-		if (tmp->type == START)
-			return (tmp);
-		idx++;
-	}
-	return (0);
-}
-
-t_room		*get_end_room(const t_map *map)
-{
-	t_room		*tmp;
-	size_t		idx;
-
-	idx = 0;
-	while (idx < map->size_rooms)
-	{
-		tmp = map->rooms[idx];
-		if (tmp->type == END)
-			return (tmp);
-		idx++;
-	}
-	return (0);
-}
-
-t_room		*init_room(void)
+t_room	*init_room(void)
 {
 	t_room	*room;
 
@@ -80,5 +48,6 @@ t_room		*init_room(void)
 	room->type = ROOM;
 	room->id = 0;
 	room->visited = 0;
+	room->prev = NULL;
 	return (room);
 }

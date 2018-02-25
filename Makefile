@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/24 19:36:47 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/02/25 10:29:03 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	= lem-in
 
 CC		= gcc
 # CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= -Wall -Wextra -fsanitize=address
-# CFLAGS	= -Wall -Wextra -g
+# CFLAGS	= -Wall -Wextra -fsanitize=address
+CFLAGS	= -Wall -Wextra -Og -g3
 
 # sources
 VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm:./srcs/utilities

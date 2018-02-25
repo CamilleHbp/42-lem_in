@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 20:12:03 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 09:24:17 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,35 @@
 ** map utilities
 */
 
-void		free_map(t_map *map);
-void		init_input(t_input *input);
-void		init_map(t_map *map);
+void	free_map(t_map *map);
+t_room	*get_end_room(const t_map *map);
+t_room	*get_room_by_id(t_map	*map, uint64_t id);
+t_room	*get_start_room(const t_map *map);
+void	init_map(t_map *map);
 
 /*
 ** string utilities
 */
 
-char		*rev_skip_number(char *s);
-char		*rev_skip_whitespace(char *s);
+void	init_input(t_input *input);
+char	*rev_skip_number(char *s);
+char	*rev_skip_whitespace(char *s);
 
 /*
 ** room utilities
 */
 
-int8_t		add_room(t_map *map, t_room *room);
-void		free_room(t_room *room);
-t_room		*get_start_room(const t_map *map);
-t_room		*get_end_room(const t_map *map);
-t_room		*init_room(void);
+int8_t	add_room(t_map *map, t_room *room);
+void	free_room(t_room *room);
+t_room	*init_room(void);
 
 /*
 ** way utilities
 */
 
-void		clear_way(t_way *way);
-void		free_way(t_way *way);
-size_t		way_len(const t_way *way);
-t_way		*dup_way(const t_way *way);
+void	clear_way(t_way *way);
+t_way	*dup_way(const t_way *way);
+void	free_way(t_way *way);
+size_t	way_len(const t_way *way);
 
 #endif

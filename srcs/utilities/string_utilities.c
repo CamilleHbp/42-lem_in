@@ -6,11 +6,17 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:07:20 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/16 16:17:41 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 09:22:08 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
+
+void		init_input(t_input *input)
+{
+	input->lines = NULL;
+	input->nb_lines = 0;
+}
 
 char	*rev_skip_whitespace(char *s)
 {

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 18:23:28 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 09:40:29 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_room
 	int64_t			x;
 	int64_t			y;
 	uint8_t			visited;
+	struct s_room	*prev;
 }				t_room;
 
 typedef struct	s_map

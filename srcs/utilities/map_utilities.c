@@ -6,13 +6,13 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 20:11:51 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 09:24:00 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
 
-void		free_map(t_map *map)
+void	free_map(t_map *map)
 {
 	if (map->rooms)
 	{
@@ -29,12 +29,51 @@ void		free_map(t_map *map)
 		free(map->adj_matrix);
 }
 
-void		init_input(t_input *input)
+t_room	*get_end_room(const t_map *map)
 {
-	input->lines = NULL;
-	input->nb_lines = 0;
+	t_room		*tmp;
+	size_t		idx;
+
+	idx = 0;
+	while (idx < map->size_rooms)
+	{
+		tmp = map->rooms[idx];
+		if (tmp->type == END)
+			return (tmp);
+		idx++;
+	}
+	return (0);
 }
 
+t_room	*get_room_by_id(t_map	*map, uint64_t id)
+{
+	uint64_t	i;
+
+	i = 0;
+	while (i < map->size_rooms)
+	{
+		if (map->rooms[i]->id == id)
+			return (map->rooms[i]);
+		++i;
+	}
+	return (NULL);
+}
+
+t_room	*get_start_room(const t_map *map)
+{
+	t_room		*tmp;
+	size_t		idx;
+
+	idx = 0;
+	while (idx < map->size_rooms)
+	{
+		tmp = map->rooms[idx];
+		if (tmp->type == START)
+			return (tmp);
+		idx++;
+	}
+	return (0);
+}
 void	init_map(t_map *map)
 {
 	map->ants = 0;
