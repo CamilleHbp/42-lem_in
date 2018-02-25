@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/24 17:50:49 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 12:04:32 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ t_way	***find_da_wae(const t_map *map)
 		if (!(ways[way_array][way] = ft_memalloc(sizeof(t_way))))
 			return (error_overwatch(map->ways, ways));
 		ways[way_array][way]->room = start;
-		if (breadth_first_seach(ways[way_array][way]) == ERROR && way > 0)
+		if (ways[way_array][way] = breadth_first_seach(map) == ERROR && way > 0)
 		{
 			// on free le precedent et on reprend depuis la collision
 			free_way(ways[way_array][way]);

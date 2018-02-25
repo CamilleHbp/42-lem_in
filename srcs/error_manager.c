@@ -6,19 +6,12 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:59:14 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 10:20:20 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 11:40:28 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_manager.h"
 #include "utilities.h"
-
-int8_t	error_bfs(t_deque *deque)
-{
-	if (deque)
-		ft_deque_delete(deque);
-	return (ERROR);
-}
 
 void	*error_overwatch(uint64_t nb_ways, t_way ***ways)
 {

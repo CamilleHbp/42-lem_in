@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 10:24:47 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/25 10:48:32 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void		link_rooms(t_room *room1, t_room *room2, uint64_t *matrix)
 {
 	matrix[room1->id] |= 1ULL << room2->id;
 	matrix[room2->id] |= 1ULL << room1->id;
-	// ft_print("Room1 ID: %d\n", room1->id);
-	// ft_print("Room2 ID: %d\n", room2->id);
 }
 
 int8_t		parse_tube(char *line, t_map *map)
