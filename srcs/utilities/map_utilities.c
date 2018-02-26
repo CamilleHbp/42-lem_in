@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 09:24:00 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/26 11:05:47 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_room	*get_start_room(const t_map *map)
 	}
 	return (0);
 }
+
 void	init_map(t_map *map)
 {
 	map->ants = 0;

@@ -6,26 +6,32 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:11:03 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 10:39:21 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/26 09:04:17 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "utilities.h"
 
 int8_t	save_line(char *line, t_input *input)
 {
-	int32_t	nb_lines;
+	static uint64_t	i;
+	int32_t			nb_lines;
 
 	nb_lines = input->nb_lines;
-	if (!(input->lines = ft_realloc(input->lines,
-										sizeof(char*) * nb_lines,
-										sizeof(char*) * (nb_lines + 1))))
+	if (!(i % LINE_ALLOC))
 	{
-		free(line);
-		return (ERROR);
+		if (!(input->lines = ft_realloc(input->lines,
+										sizeof(char*) * i,
+										sizeof(char*) * (i + LINE_ALLOC))))
+		{
+			free(line);
+			return (ERROR);
+		}
 	}
 	input->lines[nb_lines] = line;
 	input->nb_lines += 1;
+	++i;
 	return (SUCCESS);
 }
 

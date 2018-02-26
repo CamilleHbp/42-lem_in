@@ -6,16 +6,18 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 09:24:17 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/26 13:54:38 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILITIES_H
 # define UTILITIES_H
 
-#include "lem_in.h"
-#include "parsing.h"
+# include "lem_in.h"
+# include "parsing.h"
 
+# define ROOM_ALLOC	1000
+# define LINE_ALLOC	1000
 /*
 ** map utilities
 */
@@ -49,6 +51,7 @@ t_room	*init_room(void);
 void	clear_way(t_way *way);
 t_way	*dup_way(const t_way *way);
 void	free_way(t_way *way);
+int8_t	is_valid_way(t_way *way);
 size_t	way_len(const t_way *way);
 
 #endif

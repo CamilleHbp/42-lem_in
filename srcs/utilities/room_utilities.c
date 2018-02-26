@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 13:04:43 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/25 09:50:14 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/26 08:58:48 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ int8_t	add_room(t_map *map, t_room *room)
 {
 	static uint64_t	i;
 
-	if (!(map->rooms = ft_realloc(map->rooms,
-								sizeof(t_room*) * map->size_rooms,
-								sizeof(t_room*) * (map->size_rooms + 1))))
-		return (ERROR);
+	if (!(i % ROOM_ALLOC))
+	{
+		if (!(map->rooms = ft_realloc(map->rooms,
+								sizeof(t_room*) * i,
+								sizeof(t_room*) * (i + ROOM_ALLOC))))
+			return (ERROR);
+	}
 	map->rooms[map->size_rooms] = room;
 	map->size_rooms += 1;
 	room->id = i++;

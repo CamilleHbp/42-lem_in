@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 13:09:29 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/26 16:53:24 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,65 @@
 */
 
 
+/*
+** We create a 2d array of ways. Each index holds the best ways for 1 way,
+** 2 ways, etc.
+** Collision is initialised to start room
+*/
 
-t_way	**init_2darray(int64_t nb_ways)
+t_way	***init_2darray_and_collision(t_map *map)
 {
 	t_way	***ways;
-	int64_t	i;
+	uint64_t	i;
 
-	if (!(ways = ft_memalloc(sizeof(t_way **) * nb_ways)))
+	ways = NULL;
+	if (!(ways = ft_memalloc(sizeof(t_way **) * map->ways)))
 		return (NULL);
 	i = 0;
-	while (i < ways)
+	while (i < map->ways)
+	{
 		if (!(ways[i] = ft_memalloc(sizeof(t_way *) * (i + 1))))
-			return (error_flow_control(nb_ways, ways));
+			return (error_flow_control(map->ways, ways));
+		++i;
+	}
 	return (ways);
+}
+
+static int8_t	step_da_wae(t_way **way_array, int64_t way, t_map *map)
+{
+	int64_t	collision;
+
+	while (way >= 0)
+	{
+		if (is_valid_way(way_array[way]))
+		{
+			--way;
+			continue ;
+		}
+		if ((collision = breadth_first_search(map, &way_array[way], get_start_room(map))) != FOUND)
+		{
+			// on free le precedent et on recherche un chemin
+			if (way == 0)
+				return (ERROR);
+			clear_way(way_array[way - 1]);
+			free_way(way_array[way - 1]);
+			way_array[way - 1] = NULL;
+			if ((breadth_first_search(map, &way_array[way], get_room_by_id(map, collision))) == FOUND)
+			{
+				--way;
+				continue ;
+			}
+			else
+			{
+				free_way(way_array[way]);
+				way_array[way] = NULL;
+				return (ERROR);
+			}
+		}
+		else
+			--way;
+	}
+	return (SUCCESS);
 }
 
 /*
@@ -104,18 +150,17 @@ t_way	**init_2darray(int64_t nb_ways)
 **	6- If it is, we save the ways, and launch the bfs again, etc.
 */
 
-t_way	***find_da_wae(const t_map *map)
+t_way	***find_da_wae(t_map *map)
 {
 	t_way	***ways;
-	int64_t	collision;
 	size_t	way;
 	size_t	way_array;
 
 	ft_print("nb ways=%u\n", map->ways);
-	if (!(ways = init_2darray(map->ways)))
+	if ((ways = init_2darray_and_collision(map)) == NULL)
 		return (NULL);
 	way_array = 0;
-	while (way < map->ways)
+	while (way_array < map->ways)
 	{
 		// ETAPE 1: On copie les chemins precedents dans le tableau (pas besoin
 		// de tout recalculer)
@@ -126,22 +171,22 @@ t_way	***find_da_wae(const t_map *map)
 				return (error_flow_control(map->ways, ways));
 			++way;
 		}
-		if (!(ways[way_array][way] = ft_memalloc(sizeof(t_way))))
-			return (error_flow_control(map->ways, ways));
-		//ETAPE 2: On cherche a trouver le nouveau chemin
-		// Si on ne trouve pas, on revient en arriere, jusqua trouver un truc
-		// qui passe
-		//boucle a rajouter pour tourner jusqu'a avoir le chemin X
-		ways[way_array][way]->room = get_start_room(map);
-		if ((collision = breadth_first_search(map, ways[way_array][way], )) && way > 0)
-		{
-			// on free le precedent et on reprend depuis la collision
-			--way;
-			free_way(ways[way_array][way]);
-			ways[way_array][way]->room = get_start_room(map);
-		}
-		if (!(ways[way_array][way]) && way == 0)
+		if (step_da_wae(ways[way_array], way, map) == ERROR)
 			return (ways);
+		//ETAPE 2: On cherche a trouver le nouveau chemin
+		// Si on ne trouve pas, on retourne la debut de chemin depuis collision
+		// on libere le chemin precedent
+		//
+		// On libere le chemin N-1 depuis la collision - 1
+		// On lance le chemin N jusqu'a collision
+		// On relance le chemin N-1 et on trouve un nouveau chemin.
+		// Si collision, on tourne dans les chemins
+		//
+		//boucle a rajouter pour tourner jusqu'a avoir le chemin X
+		// 1- We launch the BFS function for way N
+		// 2- BFS functions returns either FOUND and the way to end
+		// or COLLISION and the way to the room before the collision
+		// 3- We free the way N-1 and finish way N.
 		++way_array;
 	}
 	return (ways);
