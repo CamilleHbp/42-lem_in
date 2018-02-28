@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:11:03 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/28 15:30:13 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 17:27:05 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,6 @@ void	print_path(int64_t *path, t_map *map)
 			parent = NULL;
 		ft_print("%s | ", child->name);
 		child = parent;
-		sleep(1);
 	}
 	if (child)
 		ft_print("%s\n", child->name);

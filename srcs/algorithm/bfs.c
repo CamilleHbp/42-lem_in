@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 14:44:20 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/28 14:06:33 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 17:51:07 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static t_way	*build_way_from_end(t_way *prev_way, t_room *end)
 	if (!(way = ft_memalloc(sizeof(t_way))))
 		return (NULL);
 	way->room = end;
-	// Il ne faut que Start et End soient visites.
 	while (way->room->prev && way->room->type != START)
 	{
 		tmp = way;
