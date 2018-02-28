@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 09:12:42 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 10:08:54 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 10:33:51 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,5 @@ int8_t			parse_tube(char *line, t_map *map);
 int8_t			parse_type(char *cmd_line);
 void			print_and_free_input(t_input input);
 int8_t			save_line(char *line, t_input *input);
-
-//debug
-void	print_reverse_way(t_room *end);
-void	print_links(t_room room);
-void	print_map(t_map map);
-void	print_room(t_room room);
 
 #endif

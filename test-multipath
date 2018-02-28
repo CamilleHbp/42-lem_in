@@ -1,0 +1,47 @@
+10
+##start
+start 1 1
+##end
+end 2 2
+a 3 3
+b 4 4
+c 5 5
+d 6 6
+e 7 7
+f 8 8
+g 9 9
+h 10 10
+i 11 11
+j 12 12
+k 13 13
+l 14 14
+m 15 15
+n 16 16
+o 17 17
+p 18 18
+q 19 19
+start-a
+start-b
+start-c
+a-d
+b-e
+c-f
+d-g
+e-g
+e-h
+f-h
+f-i
+p-q
+g-q
+g-j
+h-j
+i-k
+i-l
+q-o
+j-o
+j-m
+k-m
+l-n
+o-end
+m-end
+n-end

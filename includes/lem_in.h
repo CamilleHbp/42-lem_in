@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 13:00:29 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 15:28:40 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@
 typedef struct	s_room
 {
 	char			*name;
-	uint64_t		id;
+	uint32_t		id;
 	int8_t			type;
 	int64_t			x;
 	int64_t			y;
 	uint8_t			visited;
+	uint8_t			flow;
 	struct s_room	*prev;
 }				t_room;
 
@@ -50,5 +51,14 @@ typedef struct	s_way
 	struct s_way	*next;
 	struct s_way	*prev;
 }				t_way;
+
+//debug
+void	print_reverse_way(t_room *end);
+void	print_links(t_room room);
+void	print_map(t_map map);
+void	print_flow(t_map *map, uint32_t *flow);
+void	print_path(int64_t *path, t_map *map);
+void	print_room(t_room room);
+void	print_way(t_way *way);
 
 #endif

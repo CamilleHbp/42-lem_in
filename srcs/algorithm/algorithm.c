@@ -6,27 +6,12 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/26 16:45:49 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 15:13:16 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithm.h"
 #include "utilities.h"
-
-//debug
-void	print_way(t_way *way)
-{
-	if (!way)
-		return ;
-	ft_print("%s -> ", way->room->name);
-	way = way->next;
-	while (way && way->room->type != END)
-	{
-		ft_print("%s -> ", way->room->name);
-		way = way->next;
-	}
-	ft_print("%s\n", way->room->name);
-}
 
 uint64_t	get_max_ways(t_map *map)
 {
@@ -64,23 +49,24 @@ int8_t	solve_map(t_map *map)
 	map->ways = get_max_ways(map);
 	// if (breadth_first_search(map, &way, get_start_room(map)) != FOUND)
 		// return (ERROR);
-	if ((ways = find_da_wae(map)) == NULL)
-		return (ERROR);
+	// if ((ways = find_da_wae(map)) == NULL)
+		// return (ERROR);
+	edmonds_karp(map, NULL);
 	//debug
 	i = 0;
 	j = 0;
-	while (ways[i])
-	{
-		j = 0;
-		while (ways[i][j])
-		{
-			print_way(ways[i][j]);
-			clear_way(ways[i][j]);
-			free_way(ways[i][j]);
-			++j;
-		}
-		++i;
-	}
+	// while (ways[i])
+	// {
+		// j = 0;
+		// while (ways[i][j])
+		// {
+			// print_way(ways[i][j]);
+			// clear_way(ways[i][j]);
+			// free_way(ways[i][j]);
+			// ++j;
+		// }
+		// ++i;
+	// }
 	// start = get_start_room(map);
 	// start->visited = map->ants;
 	// while (mv_ants(ways) == SUCCESS)

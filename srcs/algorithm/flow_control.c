@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 10:52:38 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/26 16:53:24 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 10:32:34 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ static int8_t	step_da_wae(t_way **way_array, int64_t way, t_map *map)
 			way_array[way - 1] = NULL;
 			if ((breadth_first_search(map, &way_array[way], get_room_by_id(map, collision))) == FOUND)
 			{
+				print_way(way_array[way]);
 				--way;
 				continue ;
 			}

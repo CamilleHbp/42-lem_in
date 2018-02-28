@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:11:03 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/26 09:04:17 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/02/28 15:30:13 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,67 @@ void	print_reverse_way(t_room *end)
 	{
 		ft_print("%s <- %s\n", end->name, end->prev->name);
 		end = end->prev;
+	}
+}
+
+//debug
+void	print_way(t_way *way)
+{
+	if (!way)
+		return ;
+	ft_print("%s -> ", way->room->name);
+	way = way->next;
+	while (way && way->room->type != END)
+	{
+		ft_print("%s -> ", way->room->name);
+		way = way->next;
+	}
+	ft_print("%s\n", way->room->name);
+}
+
+//debug
+void	print_path(int64_t *path, t_map *map)
+{
+	t_room	*start;
+	t_room	*parent;
+	t_room	*child;
+
+	start = get_start_room(map);
+	// We start at the room before END
+	child = get_end_room(map);
+	parent = NULL;
+	// We stop at the room before START
+	while (child && child->id != start->id)
+	{
+		if (path[child->id] != -1)
+			parent = get_room_by_id(map, path[child->id]);
+		else
+			parent = NULL;
+		ft_print("%s | ", child->name);
+		child = parent;
+		sleep(1);
+	}
+	if (child)
+		ft_print("%s\n", child->name);
+}
+
+//debug
+void	print_flow(t_map *map, uint32_t *flow)
+{
+	uint32_t	i;
+	uint32_t	j;
+
+	i = 0;
+	ft_print("\nFLOW in each room\n");
+	while (i < map->size_rooms)
+	{
+		j = 0;
+		while (j < map->size_rooms)
+		{
+			if (flow[i] & (1ULL << j))
+				ft_print("Room %s full\n", map->rooms[j]->name);
+			++j;
+		}
+		++i;
 	}
 }
