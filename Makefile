@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/01 08:30:55 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/01 13:40:34 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,20 +18,21 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Og -g3
 
 # sources
-VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm:./srcs/utilities
+VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm
+VPATH	+= ./srcs/move_ants:./srcs/utilities
 SRCS	=	lem_in.c \
 			error_manager.c
 SRCS	+=	algorithm.c \
 			bfs.c \
 			dfs.c \
 			edmonds-karp.c \
-			flow_control.c \
-			mv_ants.c
+			flow_control.c
 SRCS	+=	check_map.c \
 			parse_room.c \
 			parse_tube.c \
 			parsing.c \
 			print_map.c
+SRCS	+=	mv_ants.c
 SRCS	+=	map_utilities.c \
 			path_utilities.c \
 			string_utilities.c \

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 12:21:16 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 15:39:38 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,21 @@ uint64_t	get_max_ways(t_map *map)
 
 int8_t	solve_map(t_map *map)
 {
+	t_room	*start;
 	t_way	**ways;
-	int64_t i;
-	int64_t j;
+	int64_t	i;
 
 	ways = NULL;
 	map->ways = get_max_ways(map);
 	ways = edmonds_karp(map);
-	//debug
-	j = 0;
+	start = get_start_room(map);
+	mv_ants(ways, (uint32_t)map->ants);
 	if (ways)
 	{
 		i = 0;
 		while (ways[i])
-		{
-			print_way(ways[i]);
-			free_way(ways[i]);
-			++i;
-		}
+			free_way(ways[i++]);
 		free (ways);
 	}
-	// start = get_start_room(map);
-	// start->visited = map->ants;
-	// while (mv_ants(ways) == SUCCESS)
-		// ;
 	return (SUCCESS);
 }

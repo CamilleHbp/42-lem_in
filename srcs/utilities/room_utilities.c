@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 13:04:43 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/26 08:58:48 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 14:47:48 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_room	*init_room(void)
 	room->type = ROOM;
 	room->id = 0;
 	room->visited = 0;
+	room->ant = 0;
 	room->prev = NULL;
 	return (room);
 }
