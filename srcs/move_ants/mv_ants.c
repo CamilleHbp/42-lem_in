@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/01 15:50:28 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:31:28 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ants_distribution(t_way **ways, uint32_t ants)
 		ants -= ways[i++]->ants;
 	}
 	// We divide the number of ants left by the number of ways and send them
-	max_depth = ants / i;
+	max_depth = ants / (!i ? 1 : i);
 	i = 0;
 	while (ways[i + 1])
 	{

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 16:15:58 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:21:52 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			main(void)
 	int32_t	i;
 
 	init_map(&map);
+	ways = NULL;
 	if (parse_map(&map, &input) == ERROR)
 		ft_print("error\n");
 	else
