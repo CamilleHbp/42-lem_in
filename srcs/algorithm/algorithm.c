@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:58 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/28 15:13:16 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 12:21:16 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,26 @@ uint64_t	get_max_ways(t_map *map)
 
 int8_t	solve_map(t_map *map)
 {
-	// t_room	*start;
-	t_way	***ways;
+	t_way	**ways;
 	int64_t i;
 	int64_t j;
 
 	ways = NULL;
 	map->ways = get_max_ways(map);
-	// if (breadth_first_search(map, &way, get_start_room(map)) != FOUND)
-		// return (ERROR);
-	// if ((ways = find_da_wae(map)) == NULL)
-		// return (ERROR);
-	edmonds_karp(map, NULL);
+	ways = edmonds_karp(map);
 	//debug
-	i = 0;
 	j = 0;
-	// while (ways[i])
-	// {
-		// j = 0;
-		// while (ways[i][j])
-		// {
-			// print_way(ways[i][j]);
-			// clear_way(ways[i][j]);
-			// free_way(ways[i][j]);
-			// ++j;
-		// }
-		// ++i;
-	// }
+	if (ways)
+	{
+		i = 0;
+		while (ways[i])
+		{
+			print_way(ways[i]);
+			free_way(ways[i]);
+			++i;
+		}
+		free (ways);
+	}
 	// start = get_start_room(map);
 	// start->visited = map->ants;
 	// while (mv_ants(ways) == SUCCESS)

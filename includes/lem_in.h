@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/28 15:28:40 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 08:12:59 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_way
 	t_room			*room;
 	struct s_way	*next;
 	struct s_way	*prev;
+	uint32_t		depth;
 }				t_way;
 
 //debug

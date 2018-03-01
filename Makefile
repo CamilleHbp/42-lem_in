@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/02/28 14:17:43 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/01 08:30:55 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS	+=	check_map.c \
 			parsing.c \
 			print_map.c
 SRCS	+=	map_utilities.c \
+			path_utilities.c \
 			string_utilities.c \
 			room_utilities.c \
 			way_utilities.c

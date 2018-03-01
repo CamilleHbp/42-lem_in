@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/26 13:54:38 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 08:26:03 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define ROOM_ALLOC	1000
 # define LINE_ALLOC	1000
+
 /*
 ** map utilities
 */
@@ -29,12 +30,11 @@ t_room	*get_start_room(const t_map *map);
 void	init_map(t_map *map);
 
 /*
-** string utilities
+** path utilities
 */
 
-void	init_input(t_input *input);
-char	*rev_skip_number(char *s);
-char	*rev_skip_whitespace(char *s);
+t_way	*build_way_from_path(int64_t *path, t_map *map);
+int64_t	*init_path(uint32_t map_size);
 
 /*
 ** room utilities
@@ -43,6 +43,14 @@ char	*rev_skip_whitespace(char *s);
 int8_t	add_room(t_map *map, t_room *room);
 void	free_room(t_room *room);
 t_room	*init_room(void);
+
+/*
+** string utilities
+*/
+
+void	init_input(t_input *input);
+char	*rev_skip_number(char *s);
+char	*rev_skip_whitespace(char *s);
 
 /*
 ** way utilities
