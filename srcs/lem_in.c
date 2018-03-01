@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 12:12:50 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:15:58 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 int			main(void)
 {
 	t_map	map;
+	t_way	**ways;
 	t_input	input;
 	int32_t	i;
 
@@ -51,8 +52,19 @@ int			main(void)
 	if (parse_map(&map, &input) == ERROR)
 		ft_print("error\n");
 	else
-		if (solve_map(&map) == ERROR)
-			ft_print("map error\n");
+	{
+		if (!(ways = solve_map(&map)))
+			ft_print("error\n");
+		else
+			mv_ants(ways, (uint32_t)map.ants);
+	}
+	if (ways)
+	{
+		i = 0;
+		while (ways[i])
+			free_way(ways[i++]);
+		free (ways);
+	}
 	free_map(&map);
 	i = 0;
 	while (i < input.nb_lines)

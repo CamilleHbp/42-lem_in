@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 09:12:48 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 15:39:06 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:16:47 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int8_t	depth_first_seach(t_way *way, int64_t depth);
 t_way	**edmonds_karp(t_map *map);
 t_way	***find_da_wae(t_map *map);
 void	mv_ants(t_way **ways, uint32_t ants);
-int8_t	solve_map(t_map *map);
+t_way	**solve_map(t_map *map);
 
 #endif
