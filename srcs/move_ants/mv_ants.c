@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/01 15:40:20 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/01 15:50:28 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void		mv_ants(t_way **ways, uint32_t ants)
 				if (!ways[i]->next->room->ant)
 				{
 					ways[i]->next->room->ant = ant_factory++;
+					ways[i]->ants -= 1;
 					ft_print("L%u-%s ", ways[i]->next->room->ant, ways[i]->next->room->name);
 				}
 			++i;
