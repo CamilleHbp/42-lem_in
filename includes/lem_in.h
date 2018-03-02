@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 10:38:52 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:03:11 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@
 
 # define DEF_LINKS_ALLOC 16
 
-# define FLAG_DEBUG	(int8_t)1
-# define FLAG_PATH	(int8_t)2
-# define FLAG_ANTS	(int8_t)2
+# define FLAG_INPUT	(uint8_t)1
+# define FLAG_DEBUG	(uint8_t)1
+# define FLAG_PATH	(uint8_t)2
+# define FLAG_ANTS	(uint8_t)3
 
 typedef struct	s_room
 {
@@ -66,6 +67,5 @@ void	print_map(t_map map);
 void	print_flow(t_map *map, uint32_t *flow);
 void	print_path(int64_t *path, t_map *map);
 void	print_room(t_room room);
-void	print_way(t_way *way);
 
 #endif
