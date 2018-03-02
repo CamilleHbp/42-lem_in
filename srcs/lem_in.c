@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 09:26:55 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 09:56:03 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ int			main(void)
 		if (!(ways = solve_map(&map)))
 			ft_print("error\n");
 		else
+		{
+			print_input(input);
+			ft_putchar('\n');
 			mv_ants(ways, (uint32_t)map.ants);
+		}
 	}
 	if (ways)
 	{
