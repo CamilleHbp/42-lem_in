@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 10:39:15 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 10:56:53 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,11 @@ int			main(int ac, char **av)
 
 	init_map(&map);
 	ways = NULL;
+	flags = 0;
 	if (ac > 1)
 		if (!(flags = return_flags(ac, av)))
 			return (SUCCESS);
-	if (parse_map(&map, &input) == ERROR)
+	if (parse_map(&map, &input, flags) == ERROR)
 		ft_print("error\n");
 	else
 	{
