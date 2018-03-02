@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/02 11:34:23 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/02 11:44:18 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 12:49:06 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int8_t			get_rooms(t_map *map, t_input *input, uint8_t flags)
 			room_type = get_room_type(line, room_type);
 		else
 		{
-			if (check_end_rooms(line) == SUCCESS)
+			if (ft_strchr(line, '-'))
 				return (check_nb_rooms(map, input, flags));
 			if (parse_room(line, map, room_type) == ERROR)
 			{

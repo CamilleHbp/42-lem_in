@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/02 11:47:57 by briviere         ###   ########.fr        #
+#    Updated: 2018/03/02 12:41:49 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ SRCS	+=	algorithm.c \
 			dfs.c \
 			edmonds-karp.c \
 			flow_control.c
-SRCS	+=	check_map.c \
-			get_ants.c \
+SRCS	+=	get_ants.c \
 			get_rooms.c \
 			parse_room.c \
 			parse_tube.c \
