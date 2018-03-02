@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 12:54:46 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:26:31 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "error_manager.h"
 #include "utilities.h"
 
-static int8_t	check_map(t_map *map)
+static int8_t	check_map(t_map *map, uint8_t flags)
 {
 	uint8_t		start;
 	uint8_t		end;
@@ -32,11 +32,20 @@ static int8_t	check_map(t_map *map)
 		++i;
 	}
 	if (start != 1 || end != 1)
+	{
+		if (flags & (1 << FLAG_DEBUG))
+		{
+			if (start > 1)
+				ft_print("map: there is more than 1 start room\n");
+			if (end > 1)
+				ft_print("map: there is more than 1 end room\n");
+		}
 		return (ERROR);
+	}
 	return (SUCCESS);
 }
 
-static int64_t	get_ants(t_input *input)
+static int64_t	get_ants(t_input *input, uint8_t flags)
 {
 	int64_t	i;
 	int8_t	status;
@@ -46,6 +55,8 @@ static int64_t	get_ants(t_input *input)
 	{
 		if (*line == '\0' || save_line(line, input) == ERROR)
 		{
+			if (flags & (1 << FLAG_DEBUG) && *line == 0)
+				ft_print("line 1: empty line\n");
 			free(line);
 			return (error_parsing(input, NULL));
 		}
@@ -54,16 +65,26 @@ static int64_t	get_ants(t_input *input)
 		i = 0;
 		while (line[i])
 			if (!(ft_isdigit(line[i++])))
+			{
+				if (flags & (1 << FLAG_DEBUG))
+					ft_print("line 1 col %d: not a digit\n", i - 1);
 				return (error_parsing(input, NULL));
-		if ((i = ft_atoi64(line)) <= 0)
-			return (ERROR);
+			}
+		i = ft_atoi64(line);
 		return (ft_abs64(i));
 	}
 	free(line);
+	if (flags & (1 << FLAG_DEBUG))
+	{
+		if (status == 0)
+			ft_print("line 1: end of file\n");
+		else
+			perror("get_next_line");
+	}
 	return (error_parsing(input, NULL));
 }
 
-static int8_t	get_rooms(t_map *map, t_input *input)
+static int8_t	get_rooms(t_map *map, t_input *input, uint8_t flags)
 {
 	char	*line;
 	int8_t	room_type;
@@ -84,9 +105,21 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 		else
 		{
 			if (check_end_rooms(line) == SUCCESS)
+			{
+				if (map->size_rooms == 0)
+				{
+					if (flags & (1 << FLAG_DEBUG))
+						ft_print("line %d: no room\n", input->nb_lines);
+					return (ERROR);
+				}
 				return (SUCCESS);
+			}
 			if (parse_room(line, map, room_type) == ERROR)
+			{
+				if (flags & (1 << FLAG_DEBUG))
+					ft_print("line %d: invalid room\n", input->nb_lines);
 				return (error_parsing(input, map));
+			}
 			room_type = ROOM;
 		}
 	}
@@ -94,13 +127,15 @@ static int8_t	get_rooms(t_map *map, t_input *input)
 	return (SUCCESS);
 }
 
-static int8_t	get_tubes(t_map *map, t_input *input)
+static int8_t	get_tubes(t_map *map, t_input *input, uint8_t flags)
 {
 	char	*line;
 	int8_t	status;
 
 	if (parse_tube(input->lines[input->nb_lines - 1], map) == ERROR)
 	{
+		if (flags & (1 << FLAG_DEBUG))
+			ft_print("line %d: invalid tube\n", input->nb_lines);
 		free(input->lines[--(input->nb_lines)]);
 		return (ERROR);
 	}
@@ -123,18 +158,18 @@ static int8_t	get_tubes(t_map *map, t_input *input)
 	return (SUCCESS);
 }
 
-int8_t			parse_map(t_map *map, t_input *input)
+int8_t			parse_map(t_map *map, t_input *input, uint8_t flags)
 {
 	init_input(input);
-	if ((map->ants = get_ants(input)) <= 0)
+	if ((map->ants = get_ants(input, flags)) <= 0)
 		return (ERROR);
-	if (get_rooms(map, input) == ERROR)
+	if (get_rooms(map, input, flags) == ERROR)
 		return (ERROR);
 	if (!(map->adj_matrix = ft_memalloc(sizeof(uint64_t) * map->size_rooms)))
 		return (ERROR);
-	if (get_tubes(map, input) == ERROR)
+	if (get_tubes(map, input, flags) == ERROR)
 		return (ERROR);
-	if (check_map(map) == ERROR)
+	if (check_map(map, flags) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
 }

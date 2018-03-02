@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 10:36:59 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:32:02 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ uint8_t	return_flags(int ac, char **av)
 	{
 		if (!ft_strcmp(av[i], "-a"))
 			flags |= 1 << FLAG_ANTS;
+		else if (!ft_strcmp(av[i], "-i"))
+			flags |= 1 << FLAG_INPUT;
 		else if (!ft_strcmp(av[i], "-p"))
 			flags |= 1 << FLAG_PATH;
 		else if (!ft_strcmp(av[i], "-d"))
@@ -84,10 +86,11 @@ int			main(int ac, char **av)
 
 	init_map(&map);
 	ways = NULL;
+	flags = 0;
 	if (ac > 1)
 		if (!(flags = return_flags(ac, av)))
 			return (SUCCESS);
-	if (parse_map(&map, &input) == ERROR)
+	if (parse_map(&map, &input, flags) == ERROR)
 		ft_print("error\n");
 	else
 	{
@@ -95,9 +98,20 @@ int			main(int ac, char **av)
 			ft_print("error\n");
 		else
 		{
-			print_input(input);
-			ft_putchar('\n');
-			mv_ants(ways, (uint32_t)map.ants);
+			if (!(flags & 1 << FLAG_ANTS))
+			{
+				print_input(input);
+			}
+			if (!(flags & 1 << FLAG_ANTS))
+			{
+				ft_putchar('\n');
+				mv_ants(ways, (uint32_t)map.ants);
+			}
+			if (flags & 1 << FLAG_PATH)
+			{
+				ft_putchar('\n');
+				print_ways(ways);
+			}
 		}
 	}
 	if (ways)

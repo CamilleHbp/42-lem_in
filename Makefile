@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/02 09:27:24 by briviere         ###   ########.fr        #
+#    Updated: 2018/03/02 11:32:08 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ SRCS	+=	algorithm.c \
 SRCS	+=	check_map.c \
 			parse_room.c \
 			parse_tube.c \
-			parsing.c \
-			print_map.c
+			parsing.c
 SRCS	+=	mv_ants.c
 SRCS	+=	map_utilities.c \
 			path_utilities.c \
+			print_map.c \
 			string_utilities.c \
 			room_utilities.c \
 			way_utilities.c
