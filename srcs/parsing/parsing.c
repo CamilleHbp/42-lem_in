@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:26:31 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:34:17 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,48 +84,6 @@ static int64_t	get_ants(t_input *input, uint8_t flags)
 	return (error_parsing(input, NULL));
 }
 
-static int8_t	get_rooms(t_map *map, t_input *input, uint8_t flags)
-{
-	char	*line;
-	int8_t	room_type;
-	int8_t	status;
-	int8_t	type;
-
-	room_type = ROOM;
-	while ((status = get_next_line(0, &line)) > FILE_READ)
-	{
-		if (save_line(line, input) == ERROR)
-			return (error_parsing(input, map));
-		if (line[0] == '#')
-		{
-			if (line [1] == '#')
-				if ((type = parse_type(&(line[2]))) == START || type == END)
-					room_type = type;
-		}
-		else
-		{
-			if (check_end_rooms(line) == SUCCESS)
-			{
-				if (map->size_rooms == 0)
-				{
-					if (flags & (1 << FLAG_DEBUG))
-						ft_print("line %d: no room\n", input->nb_lines);
-					return (ERROR);
-				}
-				return (SUCCESS);
-			}
-			if (parse_room(line, map, room_type) == ERROR)
-			{
-				if (flags & (1 << FLAG_DEBUG))
-					ft_print("line %d: invalid room\n", input->nb_lines);
-				return (error_parsing(input, map));
-			}
-			room_type = ROOM;
-		}
-	}
-	free(line);
-	return (SUCCESS);
-}
 
 static int8_t	get_tubes(t_map *map, t_input *input, uint8_t flags)
 {
