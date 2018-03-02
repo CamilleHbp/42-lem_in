@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 11:48:24 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 14:01:35 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:27:06 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ static void		apply_augmenting_path(t_map *map, uint32_t **flow, int64_t *path)
 	}
 }
 
+uint8_t			is_linked(t_room *room1, t_room *room2)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < room1->size_links)
+		if (room1->links[i++] == room2)
+			return (SUCCESS);
+	return (ERROR);
+}
 /*
 ** We check if there is a way forward between ROOM and NEIGHBOUR.
 ** If there is, we check if there still is capacity on the edge.
@@ -71,24 +81,26 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 		while (child_id < map->size_rooms)
 		{
 			if (!visited[child_id] && !map->rooms[child_id]->visited)
-				if (map->adj_matrix[parent->id] & (1ULL << child_id))
+			{
+				child = get_room_by_id(map, child_id);
+				if (is_linked(parent, child))
+				{
+				// if (map->adj_matrix[parent->id] & (1ULL << child_id))
 					// if (!((*flow)[child_id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child_id))
 					// if (!((*flow)[child_id] & (1ULL << parent->id)))
 					// if (!((*flow)[parent->id] & (1ULL << child_id)))
 					// {
-						if (child_id != get_start_room(map)->id)
-						{
-						child = get_room_by_id(map, child_id);
-						visited[child_id] = TRUE;
-						path[child_id] = parent->id;
-						ft_deque_push_back(deque, (void*)child);
-						if (child->type == END)
-						{
-							free(visited);
-							return (path);
-						}
-						}
-					// }
+					child = get_room_by_id(map, child_id);
+					visited[child_id] = TRUE;
+					path[child_id] = parent->id;
+					ft_deque_push_back(deque, (void*)child);
+					if (child->type == END)
+					{
+						free(visited);
+						return (path);
+					}
+				}
+			}
 			++child_id;
 		}
 	}

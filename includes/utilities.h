@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:01:44 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:16:36 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@
 # define ROOM_ALLOC	1000
 # define LINE_ALLOC	1000
 
+/*
+** input utilities
+*/
+
+void	free_input(t_input input);
+void	print_input(t_input input);
 
 /*
 ** print utilities
 */
 
-void	print_input(t_input input);
 void	print_way(t_way *way);
 void	print_ways(t_way **ways);
 
@@ -68,7 +73,6 @@ char	*rev_skip_whitespace(char *s);
 void	clear_way(t_way *way);
 t_way	*dup_way(const t_way *way);
 void	free_way(t_way *way);
-int8_t	is_valid_way(t_way *way);
-size_t	way_len(const t_way *way);
+void	free_ways(t_way **ways);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 14:44:20 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 14:39:59 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:17:08 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_way	*build_way_from_end(t_room *end)
 
 static int64_t	return_shortest_path(t_deque *deque, t_map *map)
 {
-	uint64_t	child_id;
+/* 	uint64_t	child_id;
 	t_room		*parent;
 	t_room		*child;
 
@@ -61,7 +61,7 @@ static int64_t	return_shortest_path(t_deque *deque, t_map *map)
 			{
 				if (map->adj_matrix[parent->id] & (1ULL << child_id))
 				{
-					child = get_room_by_id(map, child_id);
+					// child = get_room_by_id(map, child_id);
 					// if (!child->prev && child->type != START)
 					// if (!child->visited && child->type != START)
 					if (!child->visited)
@@ -76,7 +76,7 @@ static int64_t	return_shortest_path(t_deque *deque, t_map *map)
 			}
 		}
 	}
-	return (ERROR);
+	return (ERROR); */
 }
 
 t_way	*breadth_first_search(t_map *map, t_room *parent)

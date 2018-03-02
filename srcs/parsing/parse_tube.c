@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/25 10:48:32 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:15:42 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,29 @@ static t_room	*return_room(char *name, t_map map)
 	return (NULL);
 }
 
-static void		link_rooms(t_room *room1, t_room *room2, uint64_t *matrix)
+static int8_t	link_rooms(t_room *room1, t_room *room2)
 {
-	matrix[room1->id] |= 1ULL << room2->id;
-	matrix[room2->id] |= 1ULL << room1->id;
+	size_t	i;
+
+	if (!(room1->size_links % 5))
+		if (!(room1->links = ft_realloc(room1->links,
+			sizeof(t_room*) * room1->size_links,
+			sizeof(t_room*) * room1->size_links + 5)))
+			return (ERROR);
+	if (!(room2->size_links % 5))
+		if (!(room2->links = ft_realloc(room2->links,
+			sizeof(t_room*) * room2->size_links,
+			sizeof(t_room*) * room2->size_links + 5)))
+			return (ERROR);
+	i = 0;
+	while (i < room1->size_links)
+		if (room1->links[i++] == room2)
+			return (SUCCESS);
+	room1->links[room1->size_links] = room2;
+	room1->size_links += 1;
+	room2->links[room2->size_links] = room1;
+	room2->size_links += 1;
+	return (SUCCESS);
 }
 
 int8_t		parse_tube(char *line, t_map *map)
@@ -51,6 +70,7 @@ int8_t		parse_tube(char *line, t_map *map)
 	if (*name == '\0' || (room2 = return_room(name, *map)) == NULL)
 		return (error_parsing_tube(name));
 	free(name);
-	link_rooms(room1, room2, map->adj_matrix);
+	if (link_rooms(room1, room2) == ERROR)
+		return (ERROR);
 	return (SUCCESS);
 }

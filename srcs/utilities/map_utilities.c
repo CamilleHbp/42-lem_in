@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/02/26 11:05:47 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:18:20 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	free_map(t_map *map)
 		free(map->rooms);
 		map->rooms = NULL;
 	}
-	if (map->adj_matrix)
-		free(map->adj_matrix);
 }
 
 t_room	*get_end_room(const t_map *map)
@@ -81,5 +79,4 @@ void	init_map(t_map *map)
 	map->rooms = NULL;
 	map->size_rooms = 0;
 	map->ways = 0;
-	map->adj_matrix = NULL;
 }
