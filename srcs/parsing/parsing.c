@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:47:27 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:55:38 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ static int8_t	check_map(t_map *map, uint8_t flags)
 	}
 	return (SUCCESS);
 }
-
-
 
 static int8_t	get_tubes(t_map *map, t_input *input, uint8_t flags)
 {
