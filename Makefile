@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/02 13:19:32 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/02 17:08:28 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= lem-in
 CC		= gcc
 # CFLAGS	= -Wall -Wextra -Werror
 # CFLAGS	= -Wall -Wextra -fsanitize=address
-CFLAGS	= -Wall -Wextra -Og -g3
+CFLAGS	= -Wall -Wextra -Werror
 
 # sources
 VPATH	+= ./srcs:./srcs/parsing:./srcs/algorithm
@@ -23,8 +23,6 @@ VPATH	+= ./srcs/move_ants:./srcs/utilities
 SRCS	=	lem_in.c \
 			error_manager.c
 SRCS	+=	algorithm.c \
-			bfs.c \
-			dfs.c \
 			edmonds-karp.c
 SRCS	+=	get_ants.c \
 			get_rooms.c \

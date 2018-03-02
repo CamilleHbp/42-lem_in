@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:04:45 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/02 11:36:56 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:10:40 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	free_ways(t_way **ways)
 	{
 		while (ways[i])
 			free_way(ways[i++]);
-		free (ways);
+		free(ways);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 11:11:03 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:11:11 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:14:32 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	print_way(t_way *way)
 void	print_ways(t_way **ways)
 {
 	size_t	i;
+
 	if (!ways)
 		return ;
 	i = 0;
@@ -52,14 +53,17 @@ void	print_ways(t_way **ways)
 	}
 }
 
-//debug
+/*
+** debug
+*/
+
 void	print_links(t_room *room)
 {
 	size_t	i;
 
 	i = 0;
 	ft_print("Room #%s links:\n", room->name);
-	while(i < room->size_links)
+	while (i < room->size_links)
 	{
 		ft_print("link #%d: %s\n", i, room->links[i]->name);
 		++i;

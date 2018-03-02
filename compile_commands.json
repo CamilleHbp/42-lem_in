@@ -1,0 +1,1789 @@
+[
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_create.o", 
+            "srcs/queue/ft_deque_create.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_create.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/get_rooms.o", 
+            "srcs/parsing/get_rooms.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/parsing/get_rooms.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_abs64.o", 
+            "srcs/math/ft_abs64.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_abs64.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strcrepl.o", 
+            "srcs/strings/ft_strcrepl.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strcrepl.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_min.o", 
+            "srcs/math/ft_min.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_min.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_toupper.o", 
+            "srcs/strings/ft_toupper.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_toupper.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memccpy.o", 
+            "srcs/memory/ft_memccpy.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memccpy.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strisnumber.o", 
+            "srcs/strings/ft_strisnumber.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strisnumber.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strcpy.o", 
+            "srcs/strings/ft_strcpy.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strcpy.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memset.o", 
+            "srcs/memory/ft_memset.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memset.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_pop_back.o", 
+            "srcs/queue/ft_deque_pop_back.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_pop_back.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_striteri.o", 
+            "srcs/strings/ft_striteri.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_striteri.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_absld.o", 
+            "srcs/math/ft_absld.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_absld.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_absf.o", 
+            "srcs/math/ft_absf.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_absf.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_wputnstr.o", 
+            "srcs/strings/ft_wputnstr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_wputnstr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/edmonds-karp.o", 
+            "srcs/algorithm/edmonds-karp.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/algorithm/edmonds-karp.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_print.o", 
+            "srcs/iostream/ft_print.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/iostream/ft_print.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strnew.o", 
+            "srcs/strings/ft_strnew.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strnew.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strcat.o", 
+            "srcs/strings/ft_strcat.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strcat.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_push_back.o", 
+            "srcs/queue/ft_deque_push_back.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_push_back.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_wcharlen.o", 
+            "srcs/strings/ft_wcharlen.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_wcharlen.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strsub.o", 
+            "srcs/strings/ft_strsub.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strsub.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isascii.o", 
+            "srcs/strings/ft_isascii.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isascii.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strisalnum.o", 
+            "srcs/strings/ft_strisalnum.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strisalnum.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/parse_room.o", 
+            "srcs/parsing/parse_room.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/parsing/parse_room.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strchr.o", 
+            "srcs/strings/ft_strchr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strchr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strcdel.o", 
+            "srcs/strings/ft_strcdel.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strcdel.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_lstmap.o", 
+            "srcs/lists/ft_lstmap.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/lists/ft_lstmap.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_tolower.o", 
+            "srcs/strings/ft_tolower.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_tolower.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strmap.o", 
+            "srcs/strings/ft_strmap.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strmap.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putnbr_fd.o", 
+            "srcs/strings/ft_putnbr_fd.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putnbr_fd.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/mv_ants.o", 
+            "srcs/move_ants/mv_ants.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/move_ants/mv_ants.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memdel.o", 
+            "srcs/memory/ft_memdel.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memdel.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strnstr.o", 
+            "srcs/strings/ft_strnstr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strnstr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putendl_fd.o", 
+            "srcs/strings/ft_putendl_fd.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putendl_fd.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strclr.o", 
+            "srcs/strings/ft_strclr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strclr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memmove.o", 
+            "srcs/memory/ft_memmove.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memmove.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isupper.o", 
+            "srcs/strings/ft_isupper.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isupper.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_max.o", 
+            "srcs/math/ft_max.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_max.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/get_next_line.o", 
+            "srcs/iostream/get_next_line.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/iostream/get_next_line.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putchar.o", 
+            "srcs/strings/ft_putchar.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putchar.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_wputchar.o", 
+            "srcs/strings/ft_wputchar.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_wputchar.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_islower.o", 
+            "srcs/strings/ft_islower.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_islower.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/string_utilities.o", 
+            "srcs/utilities/string_utilities.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/string_utilities.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putnstr.o", 
+            "srcs/strings/ft_putnstr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putnstr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strtoupper.o", 
+            "srcs/strings/ft_strtoupper.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strtoupper.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_pow.o", 
+            "srcs/math/ft_pow.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_pow.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putstr_padzeroes.o", 
+            "srcs/strings/ft_putstr_padzeroes.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putstr_padzeroes.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/way_utilities.o", 
+            "srcs/utilities/way_utilities.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/way_utilities.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putchar_fd.o", 
+            "srcs/strings/ft_putchar_fd.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putchar_fd.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/input_utilities.o", 
+            "srcs/utilities/input_utilities.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/input_utilities.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/error_manager.o", 
+            "srcs/error_manager.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/error_manager.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_swap_u.o", 
+            "srcs/math/ft_swap_u.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_swap_u.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/parse_tube.o", 
+            "srcs/parsing/parse_tube.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/parsing/parse_tube.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_lstdelone.o", 
+            "srcs/lists/ft_lstdelone.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/lists/ft_lstdelone.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/parsing.o", 
+            "srcs/parsing/parsing.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/parsing/parsing.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putdouble.o", 
+            "srcs/strings/ft_putdouble.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putdouble.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_striter.o", 
+            "srcs/strings/ft_striter.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_striter.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/get_ants.o", 
+            "srcs/parsing/get_ants.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/parsing/get_ants.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strncat.o", 
+            "srcs/strings/ft_strncat.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strncat.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putstr.o", 
+            "srcs/strings/ft_putstr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putstr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_lstdel.o", 
+            "srcs/lists/ft_lstdel.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/lists/ft_lstdel.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/lem_in.o", 
+            "srcs/lem_in.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/lem_in.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strncpy.o", 
+            "srcs/strings/ft_strncpy.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strncpy.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/map_utilities.o", 
+            "srcs/utilities/map_utilities.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/map_utilities.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/path_utilities.o", 
+            "srcs/utilities/path_utilities.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/path_utilities.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isprint.o", 
+            "srcs/strings/ft_isprint.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isprint.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strlen.o", 
+            "srcs/strings/ft_strlen.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strlen.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_wstrlen.o", 
+            "srcs/strings/ft_wstrlen.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_wstrlen.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_wputstr.o", 
+            "srcs/strings/ft_wputstr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_wputstr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_absd.o", 
+            "srcs/math/ft_absd.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_absd.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strlcat.o", 
+            "srcs/strings/ft_strlcat.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strlcat.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strtrim.o", 
+            "srcs/strings/ft_strtrim.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strtrim.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strnequ.o", 
+            "srcs/strings/ft_strnequ.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strnequ.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/room_utilities.o", 
+            "srcs/utilities/room_utilities.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/room_utilities.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/algorithm.o", 
+            "srcs/algorithm/algorithm.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/algorithm/algorithm.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_realloc.o", 
+            "srcs/memory/ft_realloc.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_realloc.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strdel.o", 
+            "srcs/strings/ft_strdel.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strdel.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_atoi64.o", 
+            "srcs/strings/ft_atoi64.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_atoi64.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strequ.o", 
+            "srcs/strings/ft_strequ.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strequ.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memcpy.o", 
+            "srcs/memory/ft_memcpy.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memcpy.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memalloc.o", 
+            "srcs/memory/ft_memalloc.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memalloc.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strisnum.o", 
+            "srcs/strings/ft_strisnum.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strisnum.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_bzero.o", 
+            "srcs/memory/ft_bzero.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_bzero.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_abs32.o", 
+            "srcs/math/ft_abs32.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_abs32.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_itoa.o", 
+            "srcs/strings/ft_itoa.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_itoa.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_round.o", 
+            "srcs/math/ft_round.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_round.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_delete_data.o", 
+            "srcs/queue/ft_deque_delete_data.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_delete_data.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_swap.o", 
+            "srcs/math/ft_swap.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_swap.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strjoin.o", 
+            "srcs/strings/ft_strjoin.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strjoin.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putstr_fd.o", 
+            "srcs/strings/ft_putstr_fd.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putstr_fd.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putnbru.o", 
+            "srcs/strings/ft_putnbru.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putnbru.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strtolower.o", 
+            "srcs/strings/ft_strtolower.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strtolower.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_push_front.o", 
+            "srcs/queue/ft_deque_push_front.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_push_front.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_pop_front.o", 
+            "srcs/queue/ft_deque_pop_front.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_pop_front.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putnbr.o", 
+            "srcs/strings/ft_putnbr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putnbr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strrchr.o", 
+            "srcs/strings/ft_strrchr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strrchr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_deque_delete.o", 
+            "srcs/queue/ft_deque_delete.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/queue/ft_deque_delete.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_lstiter.o", 
+            "srcs/lists/ft_lstiter.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/lists/ft_lstiter.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memchr.o", 
+            "srcs/memory/ft_memchr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memchr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_memcmp.o", 
+            "srcs/memory/ft_memcmp.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/memory/ft_memcmp.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isalnum.o", 
+            "srcs/strings/ft_isalnum.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isalnum.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strstr.o", 
+            "srcs/strings/ft_strstr.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strstr.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isdigit.o", 
+            "srcs/strings/ft_isdigit.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isdigit.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strmapi.o", 
+            "srcs/strings/ft_strmapi.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strmapi.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_sqrt.o", 
+            "srcs/math/ft_sqrt.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/math/ft_sqrt.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isalpha.o", 
+            "srcs/strings/ft_isalpha.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isalpha.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_isspace.o", 
+            "srcs/strings/ft_isspace.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_isspace.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putendl.o", 
+            "srcs/strings/ft_putendl.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putendl.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-Werror", 
+            "-I./includes", 
+            "-I./libft/includes", 
+            "-o", 
+            "obj/print.o", 
+            "srcs/utilities/print.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in", 
+        "file": "srcs/utilities/print.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strcmp.o", 
+            "srcs/strings/ft_strcmp.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strcmp.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strdup.o", 
+            "srcs/strings/ft_strdup.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strdup.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_putnbr_base.o", 
+            "srcs/strings/ft_putnbr_base.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_putnbr_base.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_atoi.o", 
+            "srcs/strings/ft_atoi.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_atoi.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_lstnew.o", 
+            "srcs/lists/ft_lstnew.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/lists/ft_lstnew.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strsplit.o", 
+            "srcs/strings/ft_strsplit.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strsplit.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_strncmp.o", 
+            "srcs/strings/ft_strncmp.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/strings/ft_strncmp.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-Wall", 
+            "-Werror", 
+            "-Wextra", 
+            "-I./includes", 
+            "-o", 
+            "obj/ft_lstadd.o", 
+            "srcs/lists/ft_lstadd.c"
+        ], 
+        "directory": "/Users/briviere/projects/lem_in/libft", 
+        "file": "srcs/lists/ft_lstadd.c"
+    }
+]

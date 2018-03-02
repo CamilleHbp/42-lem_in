@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/02 11:44:01 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:50:58 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:09:49 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	free_input(t_input input)
 	size_t	i;
 
 	i = 0;
-	while (i < input.nb_lines)
+	while ((int32_t)i < input.nb_lines)
 		free(input.lines[i++]);
 	free(input.lines);
 }

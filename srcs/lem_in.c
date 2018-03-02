@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:27:45 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:23:02 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,19 @@
 ** This means if a room is defined with the command start, and then redefined
 ** without the command, it will be a simple room. not start nor end.
 **
-*/
-
-/*
+**
 ** usage
 */
 
-uint8_t	return_flags(int ac, char **av)
+const char	g_usage[] = "Usage:\n-d : debug mode -> displays the line\
+where the parsing failed\n-p : displays the possible\
+paths for the number of ants\n-a : hides the ants moves\n\
+-i : hides the original input\n";
+
+uint8_t		return_flags(int ac, char **av)
 {
 	uint8_t	flags;
-	int	i;
-
-	static const char	usage[] = "Usage:\n-d : debug mode -> displays the line"
-					" where the parsing failed\n-p : displays the possible "
-					"paths for the number of ants\n-a : hides the ants moves\n"
-					"-i : hides the original input\n";
+	int		i;
 
 	flags = 0;
 	i = 1;
@@ -69,7 +67,7 @@ uint8_t	return_flags(int ac, char **av)
 			flags |= 1 << FLAG_DEBUG;
 		else
 		{
-			ft_print("%s", usage);
+			ft_print("%s", g_usage);
 			return (0);
 		}
 		++i;
@@ -108,12 +106,12 @@ static void	resolve_lem_in(t_map *map, t_input input, uint8_t flags)
 	}
 	free_ways(ways);
 }
+
 int			main(int ac, char **av)
 {
 	t_map	map;
 	t_input	input;
 	uint8_t	flags;
-	int32_t	i;
 
 	init_map(&map);
 	flags = 0;

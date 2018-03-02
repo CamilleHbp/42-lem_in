@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/02 10:11:21 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:22:36 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static void	ants_distribution(t_way **ways, uint32_t ants)
 	while (ways[i])
 		max_depth = ft_max(max_depth, ways[i++]->depth);
 	i = 0;
-	// We equilibrate the differents length by sending more ants in shorter ways
 	while (ways[i])
 	{
 		ways[i]->ants = max_depth - ways[i]->depth;
 		ants -= ways[i++]->ants;
 	}
-	// We divide the number of ants left by the number of ways and send them
 	max_depth = ants / (!i ? 1 : i);
 	i = 0;
 	while (ways[i + 1])
@@ -50,7 +48,6 @@ static void	move_ants(t_way **ways)
 		end = ways[i];
 		while (end->next->next)
 			end = end->next;
-		// end should be the room before end
 		while (end->prev)
 		{
 			if (end->room->ant)
@@ -88,7 +85,6 @@ static uint8_t	is_empty(t_way **ways)
 void		mv_ants(t_way **ways, uint32_t ants)
 {
 	size_t		i;
-	uint32_t	*ant_array;
 	uint32_t	ant_factory;
 
 	i = 0;

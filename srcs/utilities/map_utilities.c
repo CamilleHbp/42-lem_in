@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:00 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:18:20 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:15:06 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_room	*get_end_room(const t_map *map)
 	return (0);
 }
 
-t_room	*get_room_by_id(t_map	*map, uint64_t id)
+t_room	*get_room_by_id(t_map *map, uint64_t id)
 {
 	uint64_t	i;
 

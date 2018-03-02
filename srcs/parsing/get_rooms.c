@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/02 11:34:23 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/02 12:49:06 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:23:14 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int8_t	get_room_type(char *line, int8_t prev_type)
 {
 	int8_t	type;
 
-	if (line [1] == '#')
+	if (line[1] == '#')
 		if ((type = parse_type(&(line[2]))) == START || type == END)
 			return (type);
 	return (prev_type);

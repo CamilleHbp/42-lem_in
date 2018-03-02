@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 18:32:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:15:42 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:23:32 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int8_t	link_rooms(t_room *room1, t_room *room2)
 	return (SUCCESS);
 }
 
-int8_t		parse_tube(char *line, t_map *map)
+int8_t			parse_tube(char *line, t_map *map)
 {
 	t_room	*room1;
 	t_room	*room2;

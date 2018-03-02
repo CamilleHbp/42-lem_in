@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 12:49:35 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:15:15 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 static int8_t	find_and_replace_room(t_map *map, t_room room)
 {
 	uint64_t	i;
+
 	if (!map->rooms)
 		return (ERROR);
 	i = 0;

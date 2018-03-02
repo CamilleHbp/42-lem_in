@@ -6,30 +6,13 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 11:48:24 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:56:02 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 17:15:51 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithm.h"
 #include "error_manager.h"
 #include "utilities.h"
-
-static void		apply_augmenting_path(t_map *map, uint32_t **flow, int64_t *path)
-{
-	t_room	*start;
-	t_room	*parent;
-	t_room	*child;
-
-	start = get_start_room(map);
-	child = get_end_room(map);
-	while (child->id != start->id)
-	{
-		parent = get_room_by_id(map, path[child->id]);
-		(*flow)[parent->id] |= 1ULL << child->id;
-		(*flow)[child->id] &= ~(1ULL << parent->id);
-		child = parent;
-	}
-}
 
 /*
 ** We check if there is a way forward between ROOM and NEIGHBOUR.
@@ -47,8 +30,7 @@ static void		apply_augmenting_path(t_map *map, uint32_t **flow, int64_t *path)
 ** the flow in the graph.
 */
 
-static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
-					uint32_t **flow)
+static int64_t	*find_augmenting_path(t_deque *deque, t_map *map)
 {
 	int64_t		*path;
 	uint8_t		*visited;
@@ -72,13 +54,7 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 		{
 			child = parent->links[i];
 			if (!visited[child->id] && !map->rooms[child->id]->visited)
-					//&& ((!((*flow)[child->id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child->id))
-					//&& ((!((*flow)[child->id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child->id))
-					//&& (!((*flow)[child->id] & (1ULL << parent->id)))
-					//&& (!((*flow)[parent->id] & (1ULL << child->id))))
 			{
-				// if (map->adj_matrix[parent->id] & (1ULL << child->id))
-					// {
 				visited[child->id] = TRUE;
 				path[child->id] = parent->id;
 				ft_deque_push_back(deque, (void*)child);
@@ -95,14 +71,8 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 	return (path);
 }
 
-static void	free_edmonds_karp(uint32_t **flow, int64_t **path, t_way **way,
-			t_deque **deque)
+static void		free_edmonds_karp(int64_t **path, t_way **way, t_deque **deque)
 {
-	if (flow && *flow)
-	{
-		free(*flow);
-		*flow = NULL;
-	}
 	if (path && *path)
 	{
 		free(*path);
@@ -158,17 +128,14 @@ static int8_t	is_less_moves(uint64_t *moves, t_map *map, t_way **way_array)
 ** to use each room as if it could only flow 1 through it.
 */
 
-t_way			**edmonds_karp(t_map *map)
+t_way				**edmonds_karp(t_map *map)
 {
 	t_deque		*deque;
-	uint32_t	*flow;
-	int64_t 	*path;
+	int64_t		*path;
 	t_way		**ways;
 	uint64_t	moves;
 	uint32_t	way;
 
-	if (!(flow = ft_memalloc(sizeof(uint32_t) * map->size_rooms)))
-		return (NULL);
 	moves = UINT64_MAX;
 	way = 0;
 	path = NULL;
@@ -176,33 +143,31 @@ t_way			**edmonds_karp(t_map *map)
 	while (TRUE)
 	{
 		if (!(way % 10))
-			if (!(ways = ft_realloc(ways, sizeof(t_way*) * way, sizeof(t_way*) * (way + 10))))
+			if (!(ways = ft_realloc(ways, sizeof(t_way*) * way,
+							sizeof(t_way*) * (way + 10))))
 			{
-				free_edmonds_karp(&flow, &path, NULL, &deque);
+				free_edmonds_karp(&path, NULL, &deque);
 				break ;
 			}
 		if (!(deque = ft_deque_create())
-			|| !(path = find_augmenting_path(deque, map, &flow))
+			|| !(path = find_augmenting_path(deque, map))
 			|| path[get_end_room(map)->id] == -1)
 		{
-			free_edmonds_karp(&flow, &path, NULL, &deque);
+			free_edmonds_karp(&path, NULL, &deque);
 			break ;
 		}
-		apply_augmenting_path(map, &flow, path);
 		if (!(ways[way] = build_way_from_path(path, map)))
 		{
-			free_edmonds_karp(&flow, &path, NULL, &deque);
+			free_edmonds_karp(&path, NULL, &deque);
 			break ;
 		}
 		if (!is_less_moves(&moves, map, ways))
 		{
-			free_edmonds_karp(&flow, &path, &ways[way], &deque);
+			free_edmonds_karp(&path, &ways[way], &deque);
 			break ;
 		}
-		free_edmonds_karp(NULL, &path, NULL, &deque);
+		free_edmonds_karp(&path, NULL, &deque);
 		++way;
 	}
-	if (flow)
-		free(flow);
 	return (ways);
 }
