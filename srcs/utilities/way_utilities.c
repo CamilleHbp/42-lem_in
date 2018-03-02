@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:04:45 by briviere          #+#    #+#             */
-/*   Updated: 2018/02/26 15:43:03 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:36:56 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,15 @@ void	free_way(t_way *way)
 	free(way);
 }
 
-int8_t	is_valid_way(t_way *way)
+void	free_ways(t_way **ways)
 {
-	if (way)
-	{
-		while (way->next)
-			way = way->next;
-		if (way->room->type == END)
-			return (1);
-	}
-	return (0);
-}
+	size_t	i;
 
-size_t	way_len(const t_way *way)
-{
-	if (way == 0 || way->room == 0)
-		return (0);
-	if (way->room->type == END)
-		return (1);
-	return (way_len(way->next) + 1);
+	i = 0;
+	if (ways)
+	{
+		while (ways[i])
+			free_way(ways[i++]);
+		free (ways);
+	}
 }

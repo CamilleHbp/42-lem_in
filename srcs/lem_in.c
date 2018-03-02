@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:24:26 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:40:26 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ uint8_t	return_flags(int ac, char **av)
 	uint8_t	flags;
 	int	i;
 
-	static char	usage[] = "Usage:\n-d : debug mode -> displays the line where "
-					"the parsing failed\n-p : display the possible paths for"
-					"the number of ants\n-a : hides the ants moves\n";
+	static const char	usage[] = "Usage:\n-d : debug mode -> displays the line"
+					" where the parsing failed\n-p : displays the possible "
+					"paths for the number of ants\n-a : hides the ants moves\n"
+					"-i : hides the original input\n";
 
 	flags = 0;
 	i = 1;
@@ -76,16 +77,45 @@ uint8_t	return_flags(int ac, char **av)
 	return (flags);
 }
 
+static void	resolve_lem_in(t_map *map, t_input input, uint8_t flags)
+{
+	t_way	**ways;
+	uint8_t	output;
+
+	ways = NULL;
+	output = 0;
+	if (!(ways = solve_map(map)))
+		ft_print("error\n");
+	else
+	{
+		if (!(flags & 1 << FLAG_INPUT))
+		{
+			print_input(input);
+			++output;
+		}
+		if (!(flags & 1 << FLAG_ANTS))
+		{
+			if (output)
+				ft_putchar('\n');
+			mv_ants(ways, (uint32_t)map->ants);
+		}
+		if (flags & 1 << FLAG_PATH)
+		{
+			if (output)
+				ft_putchar('\n');
+			print_ways(ways);
+		}
+	}
+	free_ways(ways);
+}
 int			main(int ac, char **av)
 {
 	t_map	map;
-	t_way	**ways;
 	t_input	input;
 	uint8_t	flags;
 	int32_t	i;
 
 	init_map(&map);
-	ways = NULL;
 	flags = 0;
 	if (ac > 1)
 		if (!(flags = return_flags(ac, av)))
@@ -93,34 +123,7 @@ int			main(int ac, char **av)
 	if (parse_map(&map, &input, flags) == ERROR)
 		ft_print("error\n");
 	else
-	{
-		if (!(ways = solve_map(&map)))
-			ft_print("error\n");
-		else
-		{
-			if (!(flags & 1 << FLAG_ANTS))
-			{
-				print_input(input);
-			}
-			if (!(flags & 1 << FLAG_ANTS))
-			{
-				ft_putchar('\n');
-				mv_ants(ways, (uint32_t)map.ants);
-			}
-			if (flags & 1 << FLAG_PATH)
-			{
-				ft_putchar('\n');
-				print_ways(ways);
-			}
-		}
-	}
-	if (ways)
-	{
-		i = 0;
-		while (ways[i])
-			free_way(ways[i++]);
-		free (ways);
-	}
+		resolve_lem_in(&map, input, flags);
 	free_map(&map);
 	i = 0;
 	while (i < input.nb_lines)

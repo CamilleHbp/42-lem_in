@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/02 10:38:17 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/02 12:48:39 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,16 @@ SRCS	=	lem_in.c \
 SRCS	+=	algorithm.c \
 			bfs.c \
 			dfs.c \
-			edmonds-karp.c \
-			flow_control.c
+			edmonds-karp.c
 SRCS	+=	check_map.c \
 			parse_room.c \
 			parse_tube.c \
 			parsing.c
 SRCS	+=	mv_ants.c
-SRCS	+=	map_utilities.c \
+SRCS	+=	input_utilities.c \
+			map_utilities.c \
 			path_utilities.c \
-			print_map.c \
+			print.c \
 			string_utilities.c \
 			room_utilities.c \
 			way_utilities.c
