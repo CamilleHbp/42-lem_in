@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 11:48:24 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:27:06 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:40:31 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		apply_augmenting_path(t_map *map, uint32_t **flow, int64_t *path)
 	{
 		parent = get_room_by_id(map, path[child->id]);
 		(*flow)[parent->id] |= 1ULL << child->id;
-		// (*flow)[child->id] &= ~(1ULL << parent->id);
+		(*flow)[child->id] &= ~(1ULL << parent->id);
 		child = parent;
 	}
 }
@@ -36,9 +36,14 @@ uint8_t			is_linked(t_room *room1, t_room *room2)
 	size_t	i;
 
 	i = 0;
+	ft_print("---------------\nIS LINKED\n");
+	ft_print("Parent: %s\nChild: %s\n", room1->name, room2->name);
 	while (i < room1->size_links)
-		if (room1->links[i++] == room2)
+		if (room1->links[i++]->id == room2->id)
+		{
+			ft_print("%s is linked to %s\n", room1->name, room2->name);
 			return (SUCCESS);
+		}
 	return (ERROR);
 }
 /*
@@ -83,7 +88,9 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 			if (!visited[child_id] && !map->rooms[child_id]->visited)
 			{
 				child = get_room_by_id(map, child_id);
-				if (is_linked(parent, child))
+				ft_print("\n********\nChildeeeee: %s\n", child->name);
+				print_links(child);
+				if (is_linked(parent, child) && ((!((*flow)[child_id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child_id)))
 				{
 				// if (map->adj_matrix[parent->id] & (1ULL << child_id))
 					// if (!((*flow)[child_id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child_id))
