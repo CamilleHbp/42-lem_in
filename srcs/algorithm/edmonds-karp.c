@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 11:48:24 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 16:40:31 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:56:02 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,6 @@ static void		apply_augmenting_path(t_map *map, uint32_t **flow, int64_t *path)
 	}
 }
 
-uint8_t			is_linked(t_room *room1, t_room *room2)
-{
-	size_t	i;
-
-	i = 0;
-	ft_print("---------------\nIS LINKED\n");
-	ft_print("Parent: %s\nChild: %s\n", room1->name, room2->name);
-	while (i < room1->size_links)
-		if (room1->links[i++]->id == room2->id)
-		{
-			ft_print("%s is linked to %s\n", room1->name, room2->name);
-			return (SUCCESS);
-		}
-	return (ERROR);
-}
 /*
 ** We check if there is a way forward between ROOM and NEIGHBOUR.
 ** If there is, we check if there still is capacity on the edge.
@@ -66,10 +51,10 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 					uint32_t **flow)
 {
 	int64_t		*path;
-	uint32_t	child_id;
 	uint8_t		*visited;
 	t_room		*parent;
 	t_room		*child;
+	size_t		i;
 
 	if (!(visited = ft_memalloc(sizeof(uint8_t) * map->size_rooms)))
 		return (NULL);
@@ -82,33 +67,28 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 	while (deque->head)
 	{
 		parent = ft_deque_pop_front(deque);
-		child_id = 0;
-		while (child_id < map->size_rooms)
+		i = 0;
+		while (i < parent->size_links)
 		{
-			if (!visited[child_id] && !map->rooms[child_id]->visited)
+			child = parent->links[i];
+			if (!visited[child->id] && !map->rooms[child->id]->visited)
+					//&& ((!((*flow)[child->id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child->id))
+					//&& ((!((*flow)[child->id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child->id))
+					//&& (!((*flow)[child->id] & (1ULL << parent->id)))
+					//&& (!((*flow)[parent->id] & (1ULL << child->id))))
 			{
-				child = get_room_by_id(map, child_id);
-				ft_print("\n********\nChildeeeee: %s\n", child->name);
-				print_links(child);
-				if (is_linked(parent, child) && ((!((*flow)[child_id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child_id)))
-				{
-				// if (map->adj_matrix[parent->id] & (1ULL << child_id))
-					// if (!((*flow)[child_id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child_id))
-					// if (!((*flow)[child_id] & (1ULL << parent->id)))
-					// if (!((*flow)[parent->id] & (1ULL << child_id)))
+				// if (map->adj_matrix[parent->id] & (1ULL << child->id))
 					// {
-					child = get_room_by_id(map, child_id);
-					visited[child_id] = TRUE;
-					path[child_id] = parent->id;
-					ft_deque_push_back(deque, (void*)child);
-					if (child->type == END)
-					{
-						free(visited);
-						return (path);
-					}
+				visited[child->id] = TRUE;
+				path[child->id] = parent->id;
+				ft_deque_push_back(deque, (void*)child);
+				if (child->type == END)
+				{
+					free(visited);
+					return (path);
 				}
 			}
-			++child_id;
+			++i;
 		}
 	}
 	free(visited);
