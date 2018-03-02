@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 16:21:52 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 10:13:01 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,52 @@
 **
 */
 
-int			main(void)
+/*
+** usage
+*/
+
+uint8_t	return_flags(int ac, char **av)
+{
+	uint8_t	flags;
+	int	i;
+
+	static char	usage[] = "Usage:\n-d : debug mode -> displays the line where "
+					"the parsing failed\n-p : display the possible paths for"
+					"the number of ants\n-a : hides the ants moves\n";
+
+	flags = 0;
+	i = 1;
+	while (i < ac)
+	{
+		if (!ft_strcmp(av[i], "-a"))
+			flags |= 1 << FLAG_ANTS;
+		else if (!ft_strcmp(av[i], "-p"))
+			flags |= 1 << FLAG_PATH;
+		else if (!ft_strcmp(av[i], "-d"))
+			flags |= 1 << FLAG_DEBUG;
+		else
+		{
+			ft_print("%s", usage);
+			return (0);
+		}
+		++i;
+	}
+	return (flags);
+}
+
+int			main(int ac, char **av)
 {
 	t_map	map;
 	t_way	**ways;
 	t_input	input;
+	uint8_t	flags;
 	int32_t	i;
 
 	init_map(&map);
 	ways = NULL;
+	if (ac > 1)
+		if (!(flags = return_flags(ac, av)))
+			return (SUCCESS);
 	if (parse_map(&map, &input) == ERROR)
 		ft_print("error\n");
 	else
