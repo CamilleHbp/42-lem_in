@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:17:03 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:26:31 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int8_t	check_map(t_map *map, uint8_t flags)
 	}
 	if (start != 1 || end != 1)
 	{
-		if (flags && (1 << FLAG_DEBUG))
+		if (flags & (1 << FLAG_DEBUG))
 		{
 			if (start > 1)
 				ft_print("map: there is more than 1 start room\n");
