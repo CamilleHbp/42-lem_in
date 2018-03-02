@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:03:11 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:25:01 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 # define DEF_LINKS_ALLOC 16
 
 # define FLAG_INPUT	(uint8_t)1
-# define FLAG_DEBUG	(uint8_t)1
-# define FLAG_PATH	(uint8_t)2
-# define FLAG_ANTS	(uint8_t)3
+# define FLAG_DEBUG	(uint8_t)2
+# define FLAG_PATH	(uint8_t)3
+# define FLAG_ANTS	(uint8_t)4
 
 typedef struct	s_room
 {
