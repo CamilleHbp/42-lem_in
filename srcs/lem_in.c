@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 10:13:01 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 10:39:15 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,14 @@ int			main(int ac, char **av)
 		if (!(ways = solve_map(&map)))
 			ft_print("error\n");
 		else
-			mv_ants(ways, (uint32_t)map.ants);
+		{
+			print_input(input);
+			if (!(flags & 1 << FLAG_ANTS))
+			{
+				ft_putchar('\n');
+				mv_ants(ways, (uint32_t)map.ants);
+			}
+		}
 	}
 	if (ways)
 	{

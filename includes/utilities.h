@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 08:26:03 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 10:38:51 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # define ROOM_ALLOC	1000
 # define LINE_ALLOC	1000
+
+void	print_input(t_input input);
 
 /*
 ** map utilities

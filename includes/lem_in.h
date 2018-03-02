@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:43:41 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 10:03:32 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 10:38:52 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct	s_way
 	uint32_t		depth;
 	uint32_t		ants;
 }				t_way;
+
 
 //debug
 void	print_reverse_way(t_room *end);
