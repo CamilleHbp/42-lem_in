@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/01 16:31:28 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 09:09:04 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void		mv_ants(t_way **ways, uint32_t ants)
 	while (TRUE)
 	{
 		i = 0;
+		move_ants(ways);
 		while (ant_factory <= ants && ways[i])
 		{
 			if (ways[i]->ants)
@@ -107,10 +108,7 @@ void		mv_ants(t_way **ways, uint32_t ants)
 					ft_print("L%u-%s ", ways[i]->next->room->ant, ways[i]->next->room->name);
 				}
 			++i;
-			if (!ways[i])
-				ft_putchar('\n');
 		}
-		move_ants(ways);
 		ft_putchar('\n');
 		if (is_empty(ways))
 			break ;
