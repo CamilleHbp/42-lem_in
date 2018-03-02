@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/02 12:48:39 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/02 12:41:49 by briviere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,12 +85,12 @@ $(OBJ_DIR)/%.o:%.c
 clean:
 	@make clean -C $(LIB_DIR)/
 	@echo "[Cleaning ${RED}lem_in${NC} objects]"
-	@/bin/rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@make fclean -C $(LIB_DIR)/
 	@echo "[Cleaning ${RED}lem_in${NC} binary]"
-	@/bin/rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 11:48:24 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 12:47:54 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/02 14:01:35 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		apply_augmenting_path(t_map *map, uint32_t **flow, int64_t *path)
 	{
 		parent = get_room_by_id(map, path[child->id]);
 		(*flow)[parent->id] |= 1ULL << child->id;
-		(*flow)[child->id] |= 0ULL << parent->id;
+		// (*flow)[child->id] &= ~(1ULL << parent->id);
 		child = parent;
 	}
 }
@@ -71,19 +71,24 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map,
 		while (child_id < map->size_rooms)
 		{
 			if (!visited[child_id] && !map->rooms[child_id]->visited)
-				if ((((map->adj_matrix[parent->id] & (1ULL << child_id)) && !((*flow)[parent->id] & (1ULL << child_id)))
-					|| ((map->adj_matrix[child_id] & (1ULL << parent->id)) && ((*flow)[child_id] & (1ULL << parent->id)))))
-				{
-					child = get_room_by_id(map, child_id);
-					visited[child_id] = TRUE;
-					path[child_id] = parent->id;
-					ft_deque_push_back(deque, (void*)child);
-					if (child->type == END)
-					{
-						free(visited);
-						return (path);
-					}
-				}
+				if (map->adj_matrix[parent->id] & (1ULL << child_id))
+					// if (!((*flow)[child_id] & (1ULL << parent->id))) || (*flow)[parent->id] & (1ULL << child_id))
+					// if (!((*flow)[child_id] & (1ULL << parent->id)))
+					// if (!((*flow)[parent->id] & (1ULL << child_id)))
+					// {
+						if (child_id != get_start_room(map)->id)
+						{
+						child = get_room_by_id(map, child_id);
+						visited[child_id] = TRUE;
+						path[child_id] = parent->id;
+						ft_deque_push_back(deque, (void*)child);
+						if (child->type == END)
+						{
+							free(visited);
+							return (path);
+						}
+						}
+					// }
 			++child_id;
 		}
 	}

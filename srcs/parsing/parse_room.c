@@ -6,20 +6,13 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 13:17:34 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:07:54 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 12:49:35 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_manager.h"
 #include "parsing.h"
 #include "utilities.h"
-
-int8_t			check_end_rooms(char *line)
-{
-	if (ft_strchr(line, '-'))
-		return (SUCCESS);
-	return (ERROR);
-}
 
 static int8_t	find_and_replace_room(t_map *map, t_room room)
 {
