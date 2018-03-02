@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:41:43 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 11:34:17 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:47:27 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,44 +45,6 @@ static int8_t	check_map(t_map *map, uint8_t flags)
 	return (SUCCESS);
 }
 
-static int64_t	get_ants(t_input *input, uint8_t flags)
-{
-	int64_t	i;
-	int8_t	status;
-	char	*line;
-
-	while ((status = get_next_line(0, &line)) > FILE_READ)
-	{
-		if (*line == '\0' || save_line(line, input) == ERROR)
-		{
-			if (flags & (1 << FLAG_DEBUG) && *line == 0)
-				ft_print("line 1: empty line\n");
-			free(line);
-			return (error_parsing(input, NULL));
-		}
-		if (line[0] == '#')
-			continue ;
-		i = 0;
-		while (line[i])
-			if (!(ft_isdigit(line[i++])))
-			{
-				if (flags & (1 << FLAG_DEBUG))
-					ft_print("line 1 col %d: not a digit\n", i - 1);
-				return (error_parsing(input, NULL));
-			}
-		i = ft_atoi64(line);
-		return (ft_abs64(i));
-	}
-	free(line);
-	if (flags & (1 << FLAG_DEBUG))
-	{
-		if (status == 0)
-			ft_print("line 1: end of file\n");
-		else
-			perror("get_next_line");
-	}
-	return (error_parsing(input, NULL));
-}
 
 
 static int8_t	get_tubes(t_map *map, t_input *input, uint8_t flags)
@@ -103,13 +65,10 @@ static int8_t	get_tubes(t_map *map, t_input *input, uint8_t flags)
 			return (error_parsing(input, map));
 		if (line[0] == '#')
 			continue ;
-		else
+		else if (parse_tube(line, map) == ERROR)
 		{
-			if (parse_tube(line, map) == ERROR)
-			{
-				free(input->lines[--(input->nb_lines)]);
-				return (SUCCESS);
-			}
+			free(input->lines[--(input->nb_lines)]);
+			return (SUCCESS);
 		}
 	}
 	free(line);
