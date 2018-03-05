@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:03:33 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/05 07:32:01 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 08:31:27 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 
 # define ROOM_ALLOC	1000
 # define LINE_ALLOC	1000
+
+/*
+** edmonds-karp utilities
+*/
+
+void	free_edmonds_karp(int64_t ***path, t_way **way, t_deque **deque);
+void	init_edmonds_karp(uint64_t *moves, uint32_t *way, t_way ***ways,
+			int64_t ***path);
+int8_t	is_less_moves(uint64_t *moves, t_map *map, t_way **way_array);
 
 /*
 ** flag management
