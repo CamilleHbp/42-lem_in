@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/05 09:38:48 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:54:04 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void		mv_ants(t_way **ways, uint32_t ants)
 	size_t		i;
 	uint32_t	ant_factory;
 
-	i = 0;
 	ants_distribution(ways, ants);
 	ant_factory = 1;
 	while (TRUE)

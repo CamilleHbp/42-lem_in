@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/01 08:22:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/05 09:45:14 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:59:53 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,19 @@ t_way	*init_build_way_values(t_map *map, t_room **start, uint32_t *depth,
 	return (way);
 }
 
+t_way	*create_way_room(t_map *map, uint32_t id, t_way *next)
+{
+	t_way	*way;
+	if (!(way = ft_memalloc(sizeof(t_way))))
+	{
+		free_way(next);
+		return (NULL);
+	}
+	way->room = get_room_by_id(map, id);
+	way->next = next;
+	return (way);
+}
+
 t_way	*build_way_from_path(int64_t *path, t_map *map)
 {
 	t_way		*way;
@@ -44,13 +57,8 @@ t_way	*build_way_from_path(int64_t *path, t_map *map)
 	{
 		id = path[id];
 		tmp = way;
-		if (!(way = ft_memalloc(sizeof(t_way))))
-		{
-			free_way(tmp);
+		if (!(way = create_way_room(map, id, tmp)))
 			return (NULL);
-		}
-		way->room = get_room_by_id(map, id);
-		way->next = tmp;
 		tmp->prev = way;
 		if (id == start->id)
 			break ;
