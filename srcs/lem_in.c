@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 08:42:10 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/05 07:40:07 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:48:32 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@
 
 uint8_t		return_flags(int ac, char **av)
 {
-	uint8_t	flags;
-	int		i;
-	static char	usage[] = "Usage:\n-d : debug mode -> displays the line\
-			where the parsing failed\n-p : displays the possible\
-			paths for the number of ants\n-a : hides the ants moves\n\
-			-i : hides the original input\n";
+	uint8_t		flags;
+	int			i;
+	static char	usage[] = "Usage:\n-d : debug mode -> displays the line "
+					"where the parsing failed\n-p : displays the possible "
+					"paths for the number of ants\n-a : hides the ants moves\n"
+					"-i : hides the original input\n";
 
 	flags = 0;
 	i = 1;

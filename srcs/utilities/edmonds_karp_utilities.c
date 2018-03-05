@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   edmonds-karp_utilities.c                           :+:      :+:    :+:   */
+/*   edmonds_karp_utilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 07:57:52 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/05 08:35:37 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:39:07 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_edmonds_karp(uint64_t *moves, uint32_t *way, t_way ***ways,
 	*way = 0;
 	*ways = NULL;
 	*path = ft_memalloc(sizeof(int64_t**));
-
 }
 
 void	free_edmonds_karp(int64_t ***path, t_way **way, t_deque **deque)

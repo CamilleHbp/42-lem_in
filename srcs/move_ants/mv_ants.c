@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/02 17:22:36 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:38:48 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static void	move_ants(t_way **ways)
 			{
 				end->next->room->ant = end->room->ant;
 				end->room->ant = 0;
-				ft_print("L%u-%s ", end->next->room->ant, end->next->room->name);
+				ft_print("L%u-%s ", end->next->room->ant,
+					end->next->room->name);
 			}
 			end = end->prev;
 		}
@@ -101,7 +102,8 @@ void		mv_ants(t_way **ways, uint32_t ants)
 				{
 					ways[i]->next->room->ant = ant_factory++;
 					ways[i]->ants -= 1;
-					ft_print("L%u-%s ", ways[i]->next->room->ant, ways[i]->next->room->name);
+					ft_print("L%u-%s ", ways[i]->next->room->ant,
+						ways[i]->next->room->name);
 				}
 			++i;
 		}

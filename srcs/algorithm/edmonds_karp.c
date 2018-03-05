@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 09:34:04 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/05 09:34:05 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:37:13 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ static t_way	**find_new_way(uint32_t way, t_way **ways, int64_t **path,
 	return (ways);
 }
 
-t_way				**edmonds_karp(t_map *map)
+t_way			**edmonds_karp(t_map *map)
 {
 	int64_t		**path;
 	t_way		**ways;

@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 07:26:14 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/05 07:30:09 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:39:13 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ uint8_t	is_flag(char *str)
 
 	flags = 0;
 	if (!ft_strcmp(str, "-a"))
-			flags |= 1 << FLAG_ANTS;
+		flags |= 1 << FLAG_ANTS;
 	else if (!ft_strcmp(str, "-i"))
 		flags |= 1 << FLAG_INPUT;
 	else if (!ft_strcmp(str, "-p"))

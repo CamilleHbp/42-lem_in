@@ -6,11 +6,29 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/01 08:22:51 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/01 08:28:40 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 09:45:14 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
+
+t_way	*init_build_way_values(t_map *map, t_room **start, uint32_t *depth,
+			uint32_t *id)
+{
+	t_way		*way;
+
+	if (!(way = ft_memalloc(sizeof(t_way))))
+		return (NULL);
+	if (!(way->room = get_end_room(map)))
+	{
+		free(way);
+		return (NULL);
+	}
+	*id = way->room->id;
+	*start = get_start_room(map);
+	*depth = 0;
+	return (way);
+}
 
 t_way	*build_way_from_path(int64_t *path, t_map *map)
 {
@@ -20,17 +38,9 @@ t_way	*build_way_from_path(int64_t *path, t_map *map)
 	uint32_t	id;
 	uint32_t	depth;
 
-	if (!(way = ft_memalloc(sizeof(t_way))))
+	if (!(way = init_build_way_values(map, &start, &depth, &id)))
 		return (NULL);
-	if (!(way->room = get_end_room(map)))
-	{
-		free(way);
-		return (NULL);
-	}
-	id = way->room->id;
-	start = get_start_room(map);
-	depth = 0;
-	while (42)
+	while (++depth)
 	{
 		id = path[id];
 		tmp = way;
@@ -45,7 +55,6 @@ t_way	*build_way_from_path(int64_t *path, t_map *map)
 		if (id == start->id)
 			break ;
 		way->room->visited = 1;
-		++depth;
 	}
 	way->depth = depth;
 	return (way);
