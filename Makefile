@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/05 07:32:44 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/05 08:40:46 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS	+=	get_ants.c \
 			parse_tube.c \
 			parsing.c
 SRCS	+=	mv_ants.c
-SRCS	+=	flag_management.c \
+SRCS	+=	edmonds-karp_utilities.c \
+			flag_management.c \
 			input_utilities.c \
 			map_utilities.c \
 			path_utilities.c \
