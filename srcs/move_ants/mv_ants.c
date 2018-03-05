@@ -6,13 +6,13 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 09:07:53 by briviere          #+#    #+#             */
-/*   Updated: 2018/03/05 09:54:04 by cbaillat         ###   ########.fr       */
+/*   Updated: 2018/03/05 10:04:35 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithm.h"
 
-static void	ants_distribution(t_way **ways, uint32_t ants)
+static void		ants_distribution(t_way **ways, uint32_t ants)
 {
 	uint32_t	max_depth;
 	uint32_t	i;
@@ -37,7 +37,7 @@ static void	ants_distribution(t_way **ways, uint32_t ants)
 	ways[i]->ants += ants;
 }
 
-static void	move_ants(t_way **ways)
+static void		move_ants(t_way **ways)
 {
 	size_t	i;
 	t_way	*end;
@@ -83,7 +83,7 @@ static uint8_t	is_empty(t_way **ways)
 	return (1);
 }
 
-void		mv_ants(t_way **ways, uint32_t ants)
+void			mv_ants(t_way **ways, uint32_t ants)
 {
 	size_t		i;
 	uint32_t	ant_factory;
