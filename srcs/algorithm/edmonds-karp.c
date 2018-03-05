@@ -6,7 +6,7 @@
 /*   By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 11:48:24 by cbaillat          #+#    #+#             */
-/*   Updated: 2018/03/02 17:15:51 by briviere         ###   ########.fr       */
+/*   Updated: 2018/03/05 07:52:48 by cbaillat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,36 @@
 ** the flow in the graph.
 */
 
+static int64_t	*enqueu_valid_children(t_deque *deque, t_map *map,
+					int64_t *path, uint8_t *visited)
+{
+	t_room	*parent;
+	t_room	*child;
+	size_t	i;
+
+	parent = ft_deque_pop_front(deque);
+	i = 0;
+	while (i < parent->size_links)
+	{
+		child = parent->links[i];
+		if (!visited[child->id] && !map->rooms[child->id]->visited)
+		{
+			visited[child->id] = TRUE;
+			path[child->id] = parent->id;
+			ft_deque_push_back(deque, (void*)child);
+			if (child->type == END)
+				return (path);
+		}
+		++i;
+	}
+	return (NULL);
+}
+
 static int64_t	*find_augmenting_path(t_deque *deque, t_map *map)
 {
 	int64_t		*path;
+	int64_t		*finished_path;
 	uint8_t		*visited;
-	t_room		*parent;
-	t_room		*child;
-	size_t		i;
 
 	if (!(visited = ft_memalloc(sizeof(uint8_t) * map->size_rooms)))
 		return (NULL);
@@ -47,26 +70,8 @@ static int64_t	*find_augmenting_path(t_deque *deque, t_map *map)
 		return (NULL);
 	}
 	while (deque->head)
-	{
-		parent = ft_deque_pop_front(deque);
-		i = 0;
-		while (i < parent->size_links)
-		{
-			child = parent->links[i];
-			if (!visited[child->id] && !map->rooms[child->id]->visited)
-			{
-				visited[child->id] = TRUE;
-				path[child->id] = parent->id;
-				ft_deque_push_back(deque, (void*)child);
-				if (child->type == END)
-				{
-					free(visited);
-					return (path);
-				}
-			}
-			++i;
-		}
-	}
+		if ((finished_path = enqueu_valid_children(deque, map, path, visited)))
+			break ;
 	free(visited);
 	return (path);
 }
