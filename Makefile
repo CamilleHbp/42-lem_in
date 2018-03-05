@@ -6,7 +6,7 @@
 #    By: cbaillat <cbaillat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 18:12:06 by cbaillat          #+#    #+#              #
-#    Updated: 2018/03/05 08:40:46 by cbaillat         ###   ########.fr        #
+#    Updated: 2018/03/05 09:34:22 by cbaillat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,14 @@ VPATH	+= ./srcs/move_ants:./srcs/utilities
 SRCS	=	lem_in.c \
 			error_manager.c
 SRCS	+=	algorithm.c \
-			edmonds-karp.c
+			edmonds_karp.c
 SRCS	+=	get_ants.c \
 			get_rooms.c \
 			parse_room.c \
 			parse_tube.c \
 			parsing.c
 SRCS	+=	mv_ants.c
-SRCS	+=	edmonds-karp_utilities.c \
+SRCS	+=	edmonds_karp_utilities.c \
 			flag_management.c \
 			input_utilities.c \
 			map_utilities.c \
